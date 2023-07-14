@@ -1,0 +1,62 @@
+/* Reset default browser styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color */
+body {
+  background-color: #f7f7f7;
+}
+
+/* Center the content vertically */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Add some padding to the content */
+.content {
+  padding: 40px;
+  max-width: 400px;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a nice font */
+h1,
+h2,
+p {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
