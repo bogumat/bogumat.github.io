@@ -4,23 +4,22 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="container" draggable="true">
-    <div class="content">
+  <div class="container">
+    <div class="content" id="intro">
       <h1>matvey.contact</h1>
       <p>reach me here: <a href="mailto:hi@matvey.contact">hi@matvey.contact</a>.</p>
-      <h2>Live update test</h2>
+      <h2>Drag each element</h2>
     </div>
   </div>
-  
-  <div class="container" draggable="true">
-    <div class="content">
-      <div id="canvas-container"></div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-      <script src="cube.js"></script>
-    </div>
-  </div>
-  
-  <script src="drag.js"></script>
 
+  <div class="container">
+    <div class="content" id="rotatingcube">
+      <div id="canvas-container"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script src="cube.js"></script>
+  <script src="drag.js"></script>
 </body>
 </html>

@@ -15,13 +15,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 50vh;
+  widthL: 50vw;
 }
 
 /* Add some padding to the content */
 .content {
   position: absolute;
-  padding: 40px;
+  padding: 20px;
   max-width: 400px;
   text-align: center;
   background-color: #ffffff;
@@ -60,4 +61,20 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Adjust canvas-container to maintain aspect ratio */
+#canvas-container {
+  position: relative;
+  width: 100%;
+  padding-top: 0%; 
+  overflow: hidden;
+}
+
+/* Place the canvas absolutely within the container */
+#mycanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 }

@@ -2,7 +2,7 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(380, 300);
+renderer.setSize(350, 350);
 renderer.setClearColor(0xffffff);
 document.getElementById('canvas-container').appendChild(renderer.domElement);
 
