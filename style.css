@@ -21,6 +21,7 @@ body {
 
 /* Add some padding to the content */
 .content {
+  display: flex;
   position: absolute;
   padding: 20px;
   max-width: 400px;
@@ -68,13 +69,13 @@ a:hover {
   position: relative;
   width: 100%;
   padding-top: 0%; 
-  overflow: hidden;
+  overflow:visible;
 }
 
 /* Place the canvas absolutely within the container */
 #mycanvas {
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
+  height: auto;
+  width: 100%;
 }
