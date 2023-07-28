@@ -64,18 +64,42 @@ a:hover {
   text-decoration: underline;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Align the project info and canvas container vertically */
+  position: absolute;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-info {
+  margin-bottom: 20px;
+}
+
 /* Adjust canvas-container to maintain aspect ratio */
-#canvas-container {
+#canvas-container,
+#canvas-container2 {
   position: relative;
   width: 100%;
-  padding-top: 0%; 
-  overflow:visible;
+  /* padding-top: ; Maintain 1:1 aspect ratio for the canvas container */
+  overflow: hidden;
 }
 
 /* Place the canvas absolutely within the container */
-#mycanvas {
+#mycanvas,
+#mycanvas2 {
   position: absolute;
   top: 0;
-  height: auto;
+  height: 100%;
   width: 100%;
 }
