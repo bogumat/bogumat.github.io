@@ -31,7 +31,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(134, 134, 134, 0.311);  /* Adjust opacity here */
+  background-color: rgba(61, 67, 75, 0.485);  /* Adjust opacity here */
   z-index: 1;
   box-sizing: border-box;  /* Include padding in size calculations */
 }
