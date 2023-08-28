@@ -1,0 +1,57 @@
+[
+    {
+        "title": "MEng Thesis: Improving Astronaut Dexterity",
+        "imgSrc": "img1.jpg",
+        "desc": "My MEng thesis - a hydraulic exo-skeleton approach to address lack of progress in soacesuit gloves.",
+        "link": "projects/thesis.html"
+    },
+    {
+        "title": "Harbinger: Competition Rover",
+        "imgSrc": "img2.jpg",
+        "desc": "Imperial College Space Society's first competing robot at the European Rover Challenge.",
+        "link": "projects/iprl.html"
+    },
+    {
+        "title": "Svarog: SolarSail CubeSat",
+        "imgSrc": "img3.jpg",
+        "desc": "An Imperial College Space Society project aiming to create a mission to send a cubesat beyond the Solar system.",
+        "link": "projects/svarog.html"
+    },
+    {
+        "title": "SCALED: Generative Design for Athletes",
+        "imgSrc": "images/ScaleBackground.jpg",
+        "desc": "My industrial placement during my MEng was at ScaledTech working on ultra-customisable shock absorbers for athletes.",
+        "link": "projects/scaled.html"
+    },
+    {
+        "title": "OptiArch: Generative Architecture",
+        "imgSrc": "images/optiarch.png",
+        "desc": "The winning submission to the 'Cities of the Future' Hackathon.",
+        "link": "projects/optiarch.html"
+    },
+    {
+        "title": "LumiRo.cc: Visualising Asteroids",
+        "imgSrc": "images/LumiRoccCover@4x.png",
+        "desc": "A submission to the NASASpaceApps Hackathon which won a Global Nomination",
+        "link": "projects/lumirocc.html"
+    },
+    {
+        "title": "POLARIS: Autonamous Naval Signalling",
+        "imgSrc": "images/PolarisCover_2@4x.png",
+        "desc": "The winning submission to the Ocean Infinity Hackathon solving the problem of visual signals needing sailors by applying polarising filters.",
+        "link": "projects/signalling.html"
+    },
+    {
+        "title": "Axxel: Concussion Detection",
+        "imgSrc": "images/Axxel_1@4x.png",
+        "desc": "Product design and prototyping of an accessible tool to aid with the diagnosis of rugby-related concissions.",
+        "link": "projects/lumirocc.html"
+    },
+    {
+        "title": "Modular CanSat",
+        "imgSrc": "images/CanSat.png",
+        "desc": "An early Imperial College Space Society project that developed systems, electronics, and mechanical engineering skills by launching and recovering a coke-can format 'satellite'",
+        "link": "projects/cansat2021.html"
+    }
+  ]
+  
