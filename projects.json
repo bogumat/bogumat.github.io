@@ -1,13 +1,13 @@
 [
     {
         "title": "MEng Thesis: Improving Astronaut Dexterity",
-        "imgSrc": "img1.jpg",
-        "desc": "My MEng thesis - a hydraulic exo-skeleton approach to address lack of progress in soacesuit gloves.",
+        "imgSrc": "images/thesis.png",
+        "desc": "My MEng thesis - a hydraulic exo-skeleton approach to address lack of progress in spacesuit gloves.",
         "link": "projects/thesis.html"
     },
     {
         "title": "Harbinger: Competition Rover",
-        "imgSrc": "img2.jpg",
+        "imgSrc": "images/iprl.png",
         "desc": "Imperial College Space Society's first competing robot at the European Rover Challenge.",
         "link": "projects/iprl.html"
     },
