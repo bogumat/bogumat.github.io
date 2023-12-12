@@ -4,218 +4,127 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: white;
+    background: #f5f5f5; /* subtle gray background */
     line-height: 1.6;
   }
   
   header, footer {
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    align-self: top;
-    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
+    color: white;
   }
-
+  
   section {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding: 40px 15%; /* More padding for a dramatic effect */
+    background: white; /* contrast with body background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    margin: 20px auto; /* center sections with auto margins */
+    max-width: 1200px; /* maximum width */
   }
-
-  /* Global Styles */
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background-color: white;
-  line-height: 1.6;
-}
-
-
-/* Navigation Styles */
-nav {
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-nav h3 {
-  margin: 0;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style-type: none;
-  padding-left: 20%;
-  text-align: left;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 10px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #000;
-}
-
-/* Header Styles */
-h1 {
-  text-align: center;
-  font-size: 2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 1.5em;
-  color: #555;
-}
-
-/* Section and Article Styles */
-section {
-  margin-bottom: 40px;
-}
-
-/* Link Styles */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  body {
-    padding: 0 10px;
-  }
-
-  header, section, footer {
-    padding: 20px 10px;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 5px 0;
-  }
-
-  h1 {
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-}
-
-/* Footer Styles */
-footer {
-  text-align: center;
-  font-size: 0.8em;
-  color: #666;
-  background-color: #f0f0f0;
-  padding: 10px 0;
-}
-
   
   /* Navigation Styles */
   nav {
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent; /* make navigation blend with header */
+    border-bottom: none;
   }
   
   nav h3 {
     margin: 0;
     padding: 10px 0;
+    color: white; /* white text for readability on gradient */
   }
   
   nav ul {
     list-style-type: none;
     padding: 0;
-    text-align: left;
+    text-align: center; /* center align the navigation items */
   }
   
   nav ul li {
-    display: inline;
-    margin: 0 10px;
+    display: inline-block;
+    margin: 0 20px;
   }
   
   nav a {
     text-decoration: none;
-    color: #333;
+    color: white; /* white text for readability */
     font-weight: bold;
+    transition: color 0.3s ease; /* smooth transition for hover effects */
   }
   
   nav a:hover {
-    color: #000;
+    color: #EEDBFF; /* light color for hover effect */
   }
   
   /* Header Styles */
   h1 {
-    /* text-align: center; */
-    font-size: 2em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 3em; /* larger size for dramatic effect */
+    color: white; /* white text for readability */
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* text shadow for depth */
   }
   
   h2 {
-    font-size: 1.5em;
-    color: #555;
+    font-size: 2em; /* larger size for h2 */
+    color: #444;
+    text-align: center; /* center align h2 */
   }
   
   /* Section and Article Styles */
   section {
-    margin-bottom: 40px;
+    transition: transform 0.3s ease; /* transition for hover effect */
+  }
+  
+  section:hover {
+    transform: translateY(-5px); /* slight raise effect on hover */
   }
   
   /* Link Styles */
   a {
     color: #007bff;
     text-decoration: none;
+    transition: color 0.3s ease; /* smooth transition for color change */
   }
   
   a:hover {
-    text-decoration: underline;
+    color: #0056b3; /* different shade for hover */
+    text-decoration: underline; /* underline on hover for emphasis */
   }
   
   /* Responsive Design */
   @media screen and (max-width: 768px) {
     body {
-      padding: 0 10px;
+      padding: 0;
     }
   
-    header, section, footer {
-      padding: 20px 10px;
+    header, footer, section {
+      padding: 20px;
     }
   
     nav ul li {
       display: block;
-      margin: 5px 0;
+      margin: 10px 0;
     }
   
     h1 {
-      font-size: 1.5em;
+      font-size: 2em;
     }
   
     h2 {
-      font-size: 1.2em;
+      font-size: 1.5em;
     }
   }
   
   /* Footer Styles */
   footer {
     text-align: center;
-    font-size: 0.8em;
-    color: #666;
-    background-color: #f0f0f0;
-    padding: 10px 0;
+    font-size: 0.9em;
+    color: white;
+    background-color: transparent; /* consistent with header */
   }
+  
+  /* Additional Styles */
+  /* Feel free to add additional styles for buttons, inputs, etc. */
   
