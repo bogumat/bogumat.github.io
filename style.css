@@ -59,11 +59,11 @@ body {
   /* Header Styles */
   h1 {
     text-align: center;
-    font-size: 3em; /* larger size for dramatic effect */
-    color: white; /* white text for readability */
+    font-size: 2em; /* larger size for dramatic effect */
+    color: indigo; /* white text for readability */
     margin-top: 0.2em;
     margin-bottom: 0.2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* text shadow for depth */
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); text shadow for depth */
   }
   
   h2 {
