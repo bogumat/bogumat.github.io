@@ -1,0 +1,221 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: white;
+    line-height: 1.6;
+  }
+  
+  header, footer {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-self: top;
+    width: 100%;
+  }
+
+  section {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  /* Global Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: white;
+  line-height: 1.6;
+}
+
+
+/* Navigation Styles */
+nav {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+nav h3 {
+  margin: 0;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 20%;
+  text-align: left;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* Header Styles */
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #555;
+}
+
+/* Section and Article Styles */
+section {
+  margin-bottom: 40px;
+}
+
+/* Link Styles */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+
+  header, section, footer {
+    padding: 20px 10px;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 5px 0;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+}
+
+  
+  /* Navigation Styles */
+  nav {
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  nav h3 {
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    color: #000;
+  }
+  
+  /* Header Styles */
+  h1 {
+    /* text-align: center; */
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #555;
+  }
+  
+  /* Section and Article Styles */
+  section {
+    margin-bottom: 40px;
+  }
+  
+  /* Link Styles */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 0 10px;
+    }
+  
+    header, section, footer {
+      padding: 20px 10px;
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 5px 0;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+  
+  /* Footer Styles */
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 10px 0;
+  }
+  
