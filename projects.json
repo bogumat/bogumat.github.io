@@ -3,55 +3,68 @@
         "title": "MEng Thesis: Improving Astronaut Dexterity",
         "imgSrc": "images/thesis.png",
         "desc": "My MEng thesis - a hydraulic exo-skeleton approach to address lack of progress in spacesuit gloves.",
-        "link": "projects/thesis.html"
+        "link": "projects/thesis.html",
+        "year": 2023
     },
     {
         "title": "Harbinger: Competition Rover",
         "imgSrc": "images/iprl.png",
         "desc": "Imperial College Space Society's first competing robot at the European Rover Challenge.",
-        "link": "projects/iprl.html"
+        "link": "projects/iprl.html",
+        "videoSrc": "https://www.youtube.com/watch?v=RcLyNqzgfFQ",
+        "year": 2023
     },
     {
         "title": "Svarog: SolarSail CubeSat",
         "imgSrc": "images/svarog.jpeg",
         "desc": "An Imperial College Space Society project aiming to create a mission to send a cubesat beyond the Solar system.",
-        "link": "projects/svarog.html"
+        "link": "projects/svarog.html",
+        "year": 2022
     },
     {
         "title": "SCALED: Generative Design for Athletes",
         "imgSrc": "images/ScaleBackground.jpg",
         "desc": "My industrial placement during my MEng was at ScaledTech working on ultra-customisable shock absorbers for athletes.",
-        "link": "projects/scaled.html"
+        "link": "projects/scaled.html",
+        "year": 2022
     },
     {
         "title": "OptiArch: Generative Architecture",
         "imgSrc": "images/optiarch.png",
         "desc": "The winning submission to the 'Cities of the Future' Hackathon.",
-        "link": "projects/optiarch.html"
+        "link": "projects/optiarch.html",
+        "videoSrc": "https://youtu.be/Bx8Kngn6SkU",
+        "year": 2022
     },
     {
         "title": "LumiRo.cc: Visualising Asteroids",
         "imgSrc": "images/LumiRoccCover@4x.png",
         "desc": "A submission to the NASASpaceApps Hackathon which won a Global Nomination",
-        "link": "projects/lumirocc.html"
+        "link": "projects/lumirocc.html",
+        "videoSrc": "https://youtu.be/Dngln1dxMS4"
     },
     {
-        "title": "POLARIS: Autonamous Naval Signalling",
+        "title": "Autonamous Naval Signalling",
         "imgSrc": "images/PolarisCover_2@4x.png",
         "desc": "The winning submission to the Ocean Infinity Hackathon solving the problem of visual signals needing sailors by applying polarising filters.",
-        "link": "projects/signalling.html"
+        "link": "projects/signalling.html",
+        "videoSrc": "",
+        "year": 2021
     },
     {
         "title": "Axxel: Concussion Detection",
         "imgSrc": "images/Axxel_1@4x.png",
         "desc": "Product design and prototyping of an accessible tool to aid with the diagnosis of rugby-related concissions.",
-        "link": "projects/lumirocc.html"
+        "link": "projects/axxel.html",
+        "videoSrc": "",
+        "year": 2020
     },
     {
         "title": "Modular CanSat",
         "imgSrc": "images/CanSat.png",
         "desc": "An early Imperial College Space Society project that developed systems, electronics, and mechanical engineering skills by launching and recovering a coke-can format 'satellite'",
-        "link": "projects/cansat2021.html"
+        "link": "projects/cansat2021.html",
+        "year": 2020
     }
   ]
   
