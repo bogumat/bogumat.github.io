@@ -1,0 +1,192 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f5f5f5; /* subtle gray background */
+    line-height: 1.6;
+  }
+  
+  header, footer {
+    padding: 20px 0;
+    background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
+    color: white;
+  }
+  
+  section {
+    padding: 40px 15%; /* More padding for a dramatic effect */
+    background: white; /* contrast with body background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    margin: 20px auto; /* center sections with auto margins */
+    max-width: 1200px; /* maximum width */
+  }
+  
+  /* Navigation Styles */
+  nav {
+    background-color: transparent; /* make navigation blend with header */
+    border-bottom: none;
+  }
+  
+  nav h3 {
+    margin: 0;
+    padding: 10px 0;
+    color: white; /* white text for readability on gradient */
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; /* center align the navigation items */
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white; /* white text for readability */
+    font-weight: bold;
+    transition: color 0.3s ease; /* smooth transition for hover effects */
+  }
+  
+  nav a:hover {
+    color: #EEDBFF; /* light color for hover effect */
+  }
+  
+  /* Header Styles */
+  h1 {
+    text-align: center;
+    font-size: 2em; /* larger size for dramatic effect */
+    color: indigo; /* white text for readability */
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); text shadow for depth */
+  }
+  
+  h2 {
+    font-size: 2em; /* larger size for h2 */
+    color: #444;
+    text-align: center; /* center align h2 */
+  }
+  
+  /* Section and Article Styles */
+  section {
+    transition: transform 0.3s ease; /* transition for hover effect */
+  }
+  
+  section:hover {
+    transform: translateY(-1px); /* slight raise effect on hover */
+  }
+  
+  /* Link Styles */
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease; /* smooth transition for color change */
+  }
+  
+  a:hover {
+    color: #0056b3; /* different shade for hover */
+    text-decoration: underline; /* underline on hover for emphasis */
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 0;
+    }
+  
+    header, footer, section {
+      padding: 20px;
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Footer Styles */
+  footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: white;
+    background-color: transparent; /* consistent with header */
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 20px; /* Spacing between grid items */
+    margin-bottom: 20px; /* Space between the grid and the projects section */
+  }
+  
+  #projects {
+    grid-column: 1 / -1; /* Projects section spans the entire row */
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack sections on smaller screens */
+    }
+  }
+  
+/* Project Grid Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px; /* Padding around the grid */
+  }
+  
+  .project-item {
+    background: #ffffff; /* White background for project items */
+    border: 1px solid #ddd; /* Border for project items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    border-radius: 10px; /* Rounded corners for the project item */
+    overflow: hidden;
+  }
+  
+  .project-item:hover {
+    transform: translateY(-5px); /* Slight raise effect on hover */
+  }
+  
+  .project-image {
+    display: block; /* Ensures the image container behaves like a block element */
+    width: 100%; /* Full width of the container */
+    background-size: cover; /* Cover the whole area of the container */
+    background-position: center; /* Center the background image */
+    position: relative; /* Relative positioning for the container */
+    overflow: hidden; /* Hides the overflow content */
+    border-top-left-radius: 10px; /* Rounded top-left corner */
+    border-top-right-radius: 10px; /* Rounded top-right corner */
+  }
+  
+  .project-image img {
+    position: absolute; /* Absolute position for the image */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the whole area */
+  }  
+  
+  .project-item h3 {
+    padding: 10px; /* Padding inside the project item */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the text */
+  }
+  

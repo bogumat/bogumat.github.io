@@ -1,33 +1,26 @@
-const projects = [
-    {
-      title: "MEng Thesis",
-      imageUrl: "images/thesis.png",
-      description: "Improving Astronaut Dexterity using a Passive Telehaptic Exoskeleton"
-    },
-    {
-      title: "Project 2",
-      imageUrl: "path_to_project2_image.jpg",
-      description: "Description of Project 2"
-    }
-  ]; // Added missing closing bracket
-  
-  function populateProjects() {
-    // Target the 'project-grid' class inside the 'projects' section
-    const projectsContainer = document.querySelector('#projects .project-grid');
-    let projectsHTML = '';
-  
-    projects.forEach(project => {
-      projectsHTML += `
+function populateProjects(projects) {
+  const projectsContainer = document.querySelector('#projects .project-grid');
+  let projectsHTML = '';
+
+  projects.forEach(project => {
+    projectsHTML += `
+      <a href="${project.link}" class="project-link">
         <div class="project-item">
-          <img src="${project.imageUrl}" alt="${project.title}">
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
+          <img src="${project.imgSrc}" alt="${project.title}" class="project-image">
+          <h3>${project.title} ${project.year}</h3>
         </div>
-      `;
-    });
-  
-    projectsContainer.innerHTML = projectsHTML;
-  }
-  
-  document.addEventListener('DOMContentLoaded', populateProjects);
-  
+      </a>
+    `;
+  });
+
+  projectsContainer.innerHTML = projectsHTML;
+}
+
+function fetchProjects() {
+  fetch('projects.json')
+    .then(response => response.json())
+    .then(data => populateProjects(data))
+    .catch(error => console.error('Error fetching projects:', error));
+}
+
+document.addEventListener('DOMContentLoaded', fetchProjects);
