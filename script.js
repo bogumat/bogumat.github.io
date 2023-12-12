@@ -6,7 +6,7 @@ function populateProjects(projects) {
   projects.forEach(project => {
     projectsHTML += `
       <div class="project-item">
-        <h3><a href="${project.link}">${project.title}</a></h3>
+        <h3><a href="${project.link}">${project.title} ${project.year}</a></h3>
       </div>
     `;
   });
