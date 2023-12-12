@@ -1,13 +1,15 @@
 function populateProjects(projects) {
-  // Target the 'project-grid' class inside the 'projects' section
   const projectsContainer = document.querySelector('#projects .project-grid');
   let projectsHTML = '';
 
   projects.forEach(project => {
     projectsHTML += `
-      <div class="project-item">
-        <h3><a href="${project.link}">${project.title} ${project.year}</a></h3>
-      </div>
+      <a href="${project.link}" class="project-link">
+        <div class="project-item">
+          <img src="${project.imgSrc}" alt="${project.title}" class="project-image">
+          <h3>${project.title} ${project.year}</h3>
+        </div>
+      </a>
     `;
   });
 

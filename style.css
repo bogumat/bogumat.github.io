@@ -78,7 +78,7 @@ body {
   }
   
   section:hover {
-    transform: translateY(-5px); /* slight raise effect on hover */
+    transform: translateY(-1px); /* slight raise effect on hover */
   }
   
   /* Link Styles */
@@ -124,7 +124,69 @@ body {
     color: white;
     background-color: transparent; /* consistent with header */
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 20px; /* Spacing between grid items */
+    margin-bottom: 20px; /* Space between the grid and the projects section */
+  }
   
-  /* Additional Styles */
-  /* Feel free to add additional styles for buttons, inputs, etc. */
+  #projects {
+    grid-column: 1 / -1; /* Projects section spans the entire row */
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack sections on smaller screens */
+    }
+  }
+  
+/* Project Grid Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px; /* Padding around the grid */
+  }
+  
+  .project-item {
+    background: #ffffff; /* White background for project items */
+    border: 1px solid #ddd; /* Border for project items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    border-radius: 10px; /* Rounded corners for the project item */
+    overflow: hidden;
+  }
+  
+  .project-item:hover {
+    transform: translateY(-5px); /* Slight raise effect on hover */
+  }
+  
+  .project-image {
+    display: block; /* Ensures the image container behaves like a block element */
+    width: 100%; /* Full width of the container */
+    background-size: cover; /* Cover the whole area of the container */
+    background-position: center; /* Center the background image */
+    position: relative; /* Relative positioning for the container */
+    overflow: hidden; /* Hides the overflow content */
+    border-top-left-radius: 10px; /* Rounded top-left corner */
+    border-top-right-radius: 10px; /* Rounded top-right corner */
+  }
+  
+  .project-image img {
+    position: absolute; /* Absolute position for the image */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the whole area */
+  }  
+  
+  .project-item h3 {
+    padding: 10px; /* Padding inside the project item */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the text */
+  }
   
