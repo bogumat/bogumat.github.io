@@ -21,6 +21,23 @@ body {
     margin: 20px auto; /* center sections with auto margins */
     max-width: 1200px; /* maximum width */
   }
+
+  section.content {
+    text-align: center;
+    }
+
+  iframe {
+      display: block; /* Changes the display to block to allow margin auto to work */
+      margin: auto; /* This will center the iframe if it has a defined width */
+  }
+
+  .grid-container{
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 20px; /* Spacing between grid items */
+    margin-bottom: 20px; /* Space between the grid and the projects section */
+  }
   
   /* Navigation Styles */
   nav {
@@ -80,6 +97,7 @@ body {
   section:hover {
     transform: translateY(-1px); /* slight raise effect on hover */
   }
+
   
   /* Link Styles */
   a {
@@ -93,29 +111,18 @@ body {
     text-decoration: underline; /* underline on hover for emphasis */
   }
   
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    body {
-      padding: 0;
-    }
   
+  /* Additional adjustments for very small screens, such as phones in portrait mode */
+  @media screen and (max-width: 480px) {
     header, footer, section {
-      padding: 20px;
+      padding: 15px; /* Further reduce padding for very small screens */
     }
   
-    nav ul li {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    h1 {
-      font-size: 2em;
-    }
-  
-    h2 {
-      font-size: 1.5em;
+    .grid-container {
+      margin: 15px; /* Reduce margin for the grid-container on very small screens */
     }
   }
+  
   
   /* Footer Styles */
   footer {
@@ -124,24 +131,12 @@ body {
     color: white;
     background-color: transparent; /* consistent with header */
   }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-gap: 20px; /* Spacing between grid items */
-    margin-bottom: 20px; /* Space between the grid and the projects section */
-  }
   
   #projects {
     grid-column: 1 / -1; /* Projects section spans the entire row */
   }
   
-  /* Responsive adjustments */
-  @media screen and (max-width: 768px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* Stack sections on smaller screens */
-    }
-  }
+
   
 /* Project Grid Styles */
 .project-grid {
@@ -189,4 +184,55 @@ body {
     margin: 0; /* Remove default margin */
     text-align: center; /* Center align the text */
   }
+
+  /* Responsive Design */
+  @media screen and (max-width: 1000px) {
+    body {
+      padding: 0;
+    }
+  
+    header, footer, section {
+      padding: 20px; /* Adjust padding for smaller screens */
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+
+    /* p {
+        color: red;
+    } */
+  
+    h1 {
+      font-size: 2em; /* Adjust font size for smaller screens */
+    }
+  
+    h2 {
+      font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
+  
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr; 
+      grid-gap: 15px; /* Adjust gap for smaller screens */
+      margin: 20px; /* Adjusted margin for grid-container */
+      /* color: red; */
+    }
+  
+    section {
+      margin-bottom: 15px; /* Add some space between sections */
+      padding: 15px; /* Reduce padding within sections */
+    }
+  
+    .project-grid {
+      grid-template-columns: 1fr; /* Single column for project items */
+      gap: 15px; /* Adjust gap for project items */
+    }
+  
+    .project-item {
+      /* Reduce padding, margin, and font sizes within project items as needed */
+    }
+  }
+
   
