@@ -1,11 +1,13 @@
 /* Global Styles */
-body {
+html,body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background: #f5f5f5; /* subtle gray background */
     line-height: 1.6;
+    height: 100%;
+    width: 100%;
   }
   
   header, footer {
@@ -18,8 +20,18 @@ body {
     padding: 40px 15%; /* More padding for a dramatic effect */
     background: white; /* contrast with body background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
-    margin: 20px auto; /* center sections with auto margins */
+    /* margin: 20px auto; center sections with auto margins */
     max-width: 1200px; /* maximum width */
+  }
+
+  .welcome-container, .welcome {
+    height: 80%;
+    width: auto;
+  }
+  
+  #welcome-canvas {
+    height: 100%;
+    width: 100%;
   }
 
   section.content {
@@ -153,6 +165,7 @@ body {
     transition: transform 0.3s ease; /* Transition for hover effect */
     border-radius: 10px; /* Rounded corners for the project item */
     overflow: hidden;
+    height: 100%;
   }
   
   .project-item:hover {
@@ -162,12 +175,14 @@ body {
   .project-image {
     display: block; /* Ensures the image container behaves like a block element */
     width: 100%; /* Full width of the container */
+    height: 80%;
     background-size: cover; /* Cover the whole area of the container */
     background-position: center; /* Center the background image */
     position: relative; /* Relative positioning for the container */
     overflow: hidden; /* Hides the overflow content */
     border-top-left-radius: 10px; /* Rounded top-left corner */
     border-top-right-radius: 10px; /* Rounded top-right corner */
+    object-fit: cover;
   }
   
   .project-image img {
@@ -180,13 +195,15 @@ body {
   }  
   
   .project-item h3 {
+    font-size: medium;
     padding: 10px; /* Padding inside the project item */
     margin: 0; /* Remove default margin */
     text-align: center; /* Center align the text */
+    
   }
 
-  /* Responsive Design */
-  @media screen and (max-width: 1000px) {
+/* Responsive Design */
+@media screen and (max-width: 1000px) {
     body {
       padding: 0;
     }
@@ -199,40 +216,41 @@ body {
       display: block;
       margin: 10px 0;
     }
-
-    /* p {
-        color: red;
-    } */
   
     h1 {
-      font-size: 2em; /* Adjust font size for smaller screens */
+      font-size: 30px;
     }
   
     h2 {
-      font-size: 1.5em; /* Adjust font size for smaller screens */
+      font-size: 30px;
     }
   
-    .grid-container {
-      display: grid;
-      grid-template-columns: 1fr; 
+    /* Ensure all grid containers have a single column on mobile */
+    .grid-container, .project-grid, .any-other-grid-class {
+      display: grid; /* Changed from inline to grid */
+      grid-template-columns: 1fr; /* Single column for grid items */
       grid-gap: 15px; /* Adjust gap for smaller screens */
       margin: 20px; /* Adjusted margin for grid-container */
-      /* color: red; */
     }
   
     section {
       margin-bottom: 15px; /* Add some space between sections */
       padding: 15px; /* Reduce padding within sections */
     }
-  
-    .project-grid {
-      grid-template-columns: 1fr; /* Single column for project items */
-      gap: 15px; /* Adjust gap for project items */
-    }
-  
-    .project-item {
-      /* Reduce padding, margin, and font sizes within project items as needed */
-    }
-  }
 
+    p, a {
+        font-size: 24px;
+    }
+
+    nav ul li {
+        margin: 0 5px; /* Adjust margin for smaller screens */
+        padding: 0;
+      }
+    
+      nav, a {
+        font-size: 1.5em; /* Larger font size for better readability on mobile */
+      }
+    
+  }
+  
   
