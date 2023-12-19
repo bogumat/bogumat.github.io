@@ -29,6 +29,13 @@
         "year": 2022
     },
     {
+        "title": "SPOC: Distributing DoFs in Prosthetics",
+        "imgSrc": "images/spoc.png",
+        "desc": "A short-term project on how to improve accessible articulatable prosthetics",
+        "link": "projects/spoc.html",
+        "year": 2022
+    },
+    {
         "title": "OptiArch: Generative Architecture",
         "imgSrc": "images/optiarch.png",
         "desc": "The winning submission to the 'Cities of the Future' Hackathon.",
