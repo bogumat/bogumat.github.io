@@ -4,39 +4,74 @@ html,body {
     margin: 0;
     padding: 0;
     color: #333;
-    background: #f5f5f5; /* subtle gray background */
+    background: rgb(10, 2, 25);
     line-height: 1.6;
     height: 100%;
     width: 100%;
   }
   
-  header, footer {
+  header {
+    position: relative;
     padding: 20px 0;
     background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
     color: white;
+    z-index: 10;
+  }
+  
+  footer {
+    padding: 20px 0;
+    background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
+    color: white;
+    z-index: 4;
   }
   
   section {
     padding: 40px 15%; /* More padding for a dramatic effect */
-    background: white; /* contrast with body background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
-    /* margin: 20px auto; center sections with auto margins */
+    background: rgb(255, 255, 255); /* contrast with body background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+    /* margin: 20px auto;  */
     max-width: 1200px; /* maximum width */
+    /* z-index: 3; */
   }
 
-  .welcome-container, .welcome {
-    height: 80%;
-    width: auto;
+  .welcome-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
   
   #welcome-canvas {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
-  section.content {
+  .main-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    /* z-index: 2; */
+    background: transparent;
+  }
+
+  .content {
     text-align: center;
+    background-color: aliceblue;
     }
+  
+  .project-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background: transparent;
+  }
 
   iframe {
       display: block; /* Changes the display to block to allow margin auto to work */
@@ -46,9 +81,11 @@ html,body {
   .grid-container{
     margin: 30px;
     display: grid;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr; 
     grid-gap: 20px; /* Spacing between grid items */
-    margin-bottom: 20px; /* Space between the grid and the projects section */
+    background-color: transparent;
+    z-index: 3;
   }
   
   /* Navigation Styles */
@@ -104,10 +141,12 @@ html,body {
   /* Section and Article Styles */
   section {
     transition: transform 0.3s ease; /* transition for hover effect */
+    z-index: 3;
   }
   
   section:hover {
     transform: translateY(-1px); /* slight raise effect on hover */
+    z-index: 3;
   }
 
   
@@ -238,7 +277,7 @@ html,body {
       grid-gap: 15px; /* Adjust gap for smaller screens */
       margin: 20px; /* Adjusted margin for grid-container */
     }
-  
+
     section {
       margin-bottom: 15px; /* Add some space between sections */
       padding: 15px; /* Reduce padding within sections */
@@ -255,6 +294,10 @@ html,body {
     
       nav, a {
         font-size: 1.5em; /* Larger font size for better readability on mobile */
+      }
+
+      .main-content {
+        height: auto;
       }
     
   }

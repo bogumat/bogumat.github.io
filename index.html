@@ -10,63 +10,64 @@
   <header>
     <nav>
       <ul>
-        <li><a href="#profile">About</a></li>
+        <!-- <li><a href="#profile">About</a></li> -->
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#other">Other</a></li>
+        <!-- <li><a href="#other">Other</a></li> -->
+        <li><a href="https://drive.google.com/file/d/1ZZhML2OPZIkJq1OYjqin42RYiO3gINbT/view?usp=sharing">CV</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- <div class="welcome-container">
-    <section class="welcome">
-      <canvas id="welcone-canvas">
-        hello
+
+  <div class="main-content">
+    <div class="welcome-container">
+      <canvas id="welcome-canvas">
+          <!-- Interactive stuff -->
       </canvas>
-    </section>
-  </div> -->
-
-  <div class="grid-container">
-    <section id="hi">
-      <p style="font-weight: bold;">
-        Hi, I'm Matvey - 
-      </p>
-      <p>
-        a recent grad looking for hard problems to solve. I love designing robotic systems, space-tech and writing science-fiction.
-      </p>
-    </section>
+        <!-- <button>Go to projects</button> -->
+    </div>
+    <div class="grid-container">
+      <section id="hi">
+        <p style="font-weight: bold;">
+          Hi, I'm Matvey - 
+        </p>
+        <p>
+          a recent grad looking for hard problems to solve. I love designing robotic systems, space-tech and writing science-fiction.
+        </p>
+      </section>
+    
+      <section id="profile"> 
+        <div class="contact-buttons" style="text-align: center;">
+          <a href="https://twitter.com/matbogus" target="_blank" class="contact-icon"><i class="fab fa-twitter"></i></a>
+          <a href="mailto:hi@matvey.contact" class="contact-icon"><i class="fa fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/matvey-boguslavskiy" target="_blank" class="contact-icon"><i class="fab fa-linkedin-in"></i></a>
+          <p>reach out to me</p>
+        </div>
+      </section>
   
-    <section id="profile"> 
-      <!-- <p style="font-weight: bold;">Contact Me</p> -->
-      <div class="contact-buttons" style="text-align: center;">
-        <a href="https://twitter.com/matbogus" target="_blank" class="contact-icon"><i class="fab fa-twitter"></i></a>
-        <a href="mailto:hi@matvey.contact" class="contact-icon"><i class="fa fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/matvey-boguslavskiy" target="_blank" class="contact-icon"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </section>
-
-    <section id="other">
-      <!-- <h2>Other</h2> -->
-      <p style="font-weight: bold;">Other</p>
-      <ul>
-        <li><a href="https://drive.google.com/file/d/1ZZhML2OPZIkJq1OYjqin42RYiO3gINbT/view?usp=sharing"">My CV</a></li>
-        <li><a href="https://matbogus.substack.com/">My blog</a></li>
-        <!-- Additional links or content can be added here -->
-      </ul>
-    </section>
+      <section id="other">
+        <!-- <h2>Other</h2> -->
+        <p style="font-weight: bold;">Other</p>
+        <ul>
+          <li><a href="https://drive.google.com/file/d/1ZZhML2OPZIkJq1OYjqin42RYiO3gINbT/view?usp=sharing"">My CV</a></li>
+          <li><a href="https://matbogus.substack.com/">My blog</a></li>
+          <!-- Additional links or content can be added here -->
+        </ul>
+      </section>
+    </div>
   </div>
   
-
+  
+<div class="project-content">
   <section id="projects">
     <h2>Projects</h2>
     <div class="project-grid">
     </div>
   </section>
+</div>
+  
 
-
-  <!-- <footer>
-    <p>&copy; 2023 Matvey Boguslavskiy</p>
-  </footer> -->
-
+  <script src="canvas.js"></script>
   <script src="script.js"></script>
   <script src="headerfooter.js"></script>
 </body>
