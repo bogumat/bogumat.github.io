@@ -47,6 +47,9 @@ class Sphere {
         geometry.computeVertexNormals(); // Recompute normals after altering geometry
 
         const material = new THREE.MeshStandardMaterial({ color });
+        const textureLoader = new THREE.TextureLoader();
+        const alphaTexture = textureLoader.load("images/texture-map.png");
+        material.alphaMap = alphaTexture;
         this.mesh = new THREE.Mesh(geometry, material);
         this.mesh.position.set(position.x, position.y, position.z);
         scene.add(this.mesh);
@@ -131,6 +134,7 @@ class MovableLight {
         const haloMaterial = new THREE.MeshBasicMaterial({ 
             color: color,
             transparent: true,
+            // alphaMap: "images/sun-texture.jpeg",
             opacity: 0.02,
             side: THREE.DoubleSide
         });
