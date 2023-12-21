@@ -1,305 +1,213 @@
-/* Global Styles */
-html,body {
+body, html {
+    margin: 0;
+    height: 100%;
     font-family: 'Poppins', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background: rgb(10, 2, 25);
-    line-height: 1.6;
-    height: 100%;
-    width: 100%;
-  }
-  
-  header {
-    position: relative;
-    padding: 20px 0;
-    background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
-    color: white;
-    z-index: 10;
-  }
-  
-  footer {
-    padding: 20px 0;
-    background: linear-gradient(45deg, #6D5ACF, #C748B9); /* gradient background */
-    color: white;
-    z-index: 4;
-  }
-  
-  section {
-    padding: 40px 15%; /* More padding for a dramatic effect */
-    background: rgb(255, 255, 255); /* contrast with body background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
-    /* margin: 20px auto;  */
-    max-width: 1200px; /* maximum width */
-    /* z-index: 3; */
-  }
+    background-color: #0a0a0a;
 
-  .welcome-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  #welcome-canvas {
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  .main-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    /* z-index: 2; */
-    background: transparent;
-  }
-
-  .content {
-    text-align: center;
-    background-color: aliceblue;
-    }
-  
-  .project-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    background: transparent;
-  }
-
-  iframe {
-      display: block; /* Changes the display to block to allow margin auto to work */
-      margin: auto; /* This will center the iframe if it has a defined width */
-  }
-
-  .grid-container{
-    margin: 30px;
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-gap: 20px; /* Spacing between grid items */
-    background-color: transparent;
-    z-index: 3;
-  }
-  
-  /* Navigation Styles */
-  nav {
-    background-color: transparent; /* make navigation blend with header */
-    border-bottom: none;
-  }
-  
-  nav h3 {
-    margin: 0;
-    padding: 10px 0;
-    color: white; /* white text for readability on gradient */
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center; /* center align the navigation items */
-  }
-  
-  nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: white; /* white text for readability */
-    font-weight: bold;
-    transition: color 0.3s ease; /* smooth transition for hover effects */
-  }
-  
-  nav a:hover {
-    color: #EEDBFF; /* light color for hover effect */
-  }
-  
-  /* Header Styles */
-  h1 {
-    text-align: center;
-    font-size: 2em; /* larger size for dramatic effect */
-    color: indigo; /* white text for readability */
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); text shadow for depth */
-  }
-  
-  h2 {
-    font-size: 2em; /* larger size for h2 */
-    color: #444;
-    text-align: center; /* center align h2 */
-  }
-  
-  /* Section and Article Styles */
-  section {
-    transition: transform 0.3s ease; /* transition for hover effect */
-    z-index: 3;
-  }
-  
-  section:hover {
-    transform: translateY(-1px); /* slight raise effect on hover */
-    z-index: 3;
-  }
-
-  
-  /* Link Styles */
-  a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease; /* smooth transition for color change */
-  }
-  
-  a:hover {
-    color: #0056b3; /* different shade for hover */
-    text-decoration: underline; /* underline on hover for emphasis */
-  }
-  
-  
-  /* Additional adjustments for very small screens, such as phones in portrait mode */
-  @media screen and (max-width: 480px) {
-    header, footer, section {
-      padding: 15px; /* Further reduce padding for very small screens */
-    }
-  
-    .grid-container {
-      margin: 15px; /* Reduce margin for the grid-container on very small screens */
-    }
-  }
-  
-  
-  /* Footer Styles */
-  footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: white;
-    background-color: transparent; /* consistent with header */
-  }
-  
-  #projects {
-    grid-column: 1 / -1; /* Projects section spans the entire row */
-  }
-  
-
-  
-/* Project Grid Styles */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
-    gap: 20px; /* Spacing between grid items */
-    padding: 20px; /* Padding around the grid */
-  }
-  
-  .project-item {
-    background: #ffffff; /* White background for project items */
-    border: 1px solid #ddd; /* Border for project items */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease; /* Transition for hover effect */
-    border-radius: 10px; /* Rounded corners for the project item */
-    overflow: hidden;
-    height: 100%;
-  }
-  
-  .project-item:hover {
-    transform: translateY(-5px); /* Slight raise effect on hover */
-  }
-  
-  .project-image {
-    display: block; /* Ensures the image container behaves like a block element */
-    width: 100%; /* Full width of the container */
-    height: 80%;
-    background-size: cover; /* Cover the whole area of the container */
-    background-position: center; /* Center the background image */
-    position: relative; /* Relative positioning for the container */
-    overflow: hidden; /* Hides the overflow content */
-    border-top-left-radius: 10px; /* Rounded top-left corner */
-    border-top-right-radius: 10px; /* Rounded top-right corner */
-    object-fit: cover;
-  }
-  
-  .project-image img {
-    position: absolute; /* Absolute position for the image */
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width of the container */
-    height: 100%; /* Full height of the container */
-    object-fit: cover; /* Cover the whole area */
-  }  
-  
-  .project-item h3 {
-    font-size: medium;
-    padding: 10px; /* Padding inside the project item */
-    margin: 0; /* Remove default margin */
-    text-align: center; /* Center align the text */
-    
-  }
-
-  .contact-icon {
-    font-size: 24px; /* Adjust the size as needed */
-    margin: 5px; /* Adds spacing between icons */
-    color: rgb(0,0,0);
+    scroll-behavior: smooth;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1000px) {
-    body {
-      padding: 0;
-    }
-  
-    header, footer, section {
-      padding: 20px; /* Adjust padding for smaller screens */
-    }
-  
-    nav ul li {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    h1 {
-      font-size: 30px;
-    }
-  
-    h2 {
-      font-size: 30px;
-    }
-  
-    /* Ensure all grid containers have a single column on mobile */
-    .grid-container, .project-grid, .any-other-grid-class {
-      display: grid; /* Changed from inline to grid */
-      grid-template-columns: 1fr; /* Single column for grid items */
-      grid-gap: 15px; /* Adjust gap for smaller screens */
-      margin: 20px; /* Adjusted margin for grid-container */
-    }
+/* Define Variables */
+:root {
+    --nav-footer-padding: 10px;
+    --nav-footer-total-height: calc(var(--nav-footer-padding) * 2 * 2); /* 2 elements, padding top and bottom */
+}
 
-    section {
-      margin-bottom: 15px; /* Add some space between sections */
-      padding: 15px; /* Reduce padding within sections */
-    }
+/* Nav and Footer */
+nav, footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: var(--nav-footer-padding);
+}
 
-    p, a {
-        font-size: 24px;
-    }
+nav {
+    background-color: #0f0f0f;
+    text-align: center;
+    padding: 10px 0; /* Vertical padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
 
-    nav ul li {
-        margin: 0 5px; /* Adjust margin for smaller screens */
-        padding: 0;
-      }
-    
-      nav, a {
-        font-size: 1.5em; /* Larger font size for better readability on mobile */
-      }
+nav a {
+    color: white; /* Light color for text to contrast the dark background */
+    margin: 0 15px; /* Horizontal spacing between nav items */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px; /* Increase font size for better legibility */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
 
-      .main-content {
-        height: auto;
-      }
-    
-  }
-  
-  
+nav a:hover {
+    color: #4e54c8; /* Change color on hover for interactivity */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Text glow effect on hover */
+}
+
+/* Additional styling for footer if needed */
+footer {
+    background-color: #0f0f0f;
+    color: azure;
+    text-align: center;
+    padding: var(--nav-footer-padding);
+}
+
+/* Canvas */
+#canvas-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+#canvas {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+
+    /* stop awkward dragging */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    -webkit-touch-callout: none; /* iOS Safari */
+}
+
+/* Welcome */
+#welcome {
+    position: absolute;
+    z-index: 5;
+    color: #e0e0e0;
+    text-align: center; /* Center text inside the welcome div */
+}
+
+a#intro {
+    font-size: 40px;
+    font-family: 'Silkscreen';
+}
+
+/* Projects Button */
+.projects-button-container {
+    position: absolute;
+    bottom: 20px; /* Distance from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+}
+
+/* Generic Button Container */
+.button-container {
+    position: absolute;
+    bottom: 20px; /* Distance from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+}
+
+/* Generic Styled Button */
+a.styled-button {
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Silkscreen', sans-serif;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+a.styled-button:hover {
+    background-image: linear-gradient(to left, #4e54c8, #8f94fb);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+section {
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+#projects {
+    padding-top: 50px;
+    padding-bottom: 110px;
+}
+
+h2 {
+    position: relative;
+    font-family: 'Silkscreen';
+    color: white;
+    z-index: 5;
+}
+
+h3 {
+    position: relative;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-style: bold;
+    color: aliceblue;
+}
+
+p {
+    color: aliceblue;
+}
+
+.summary {
+    text-align: left;
+    margin: 10%;
+}
+
+/* Grid Below Canvas */
+.grid-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.grid-item {
+    background-color: #0e0e0e;
+    aspect-ratio: 3 / 2;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Optional: Ensures the image is a block-level element */
+    margin: 0 auto; /* Optional: Centers the image if it's smaller than the container */
+    aspect-ratio: 3 / 2;
+}
+
+/* Contact Me */
+.contact {
+    position: relative;
+    text-align: center;
+    padding: 40px 0;
+    background-color: #2f2f2f; /* Light background color for the section */
+}
+
+.contact-heading {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #fafafa; /* Dark color for text */
+    font-family: 'Silkscreen';
+}
+
+.contact-buttons {
+    /* Centering the buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icon {
+    font-size: 30px; /* Larger icons */
+    margin: 0 15px; /* Spacing around icons */
+    padding-bottom: 20px;
+    color: #fafafa; /* Icon color */
+    transition: color 0.3s ease;
+}
+
+.contact-icon:hover {
+    color: #4e54c8; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
