@@ -1,3 +1,6 @@
+// moonlet.js is written by Matvey Boguslavskiy in 2023
+// Use however you like there is no license
+// :)
 class SceneInitializer {
     constructor(canvasId) {
         this.scene = new THREE.Scene();
@@ -170,8 +173,8 @@ initializer.animate();
 // Add main moonlet to the scene
 const centreMoonlet = new Sphere(initializer.scene, 3.5, 400, 400, 0x421dff, { x: 0, y: 0, z: 0 }, 0.004);
 // Add orbiting Moonlet
-const M1 = new Sphere(initializer.scene, 0.7, 128, 128, 0xfaafff, {x: 2, y: 4, z: 0}, 0.04)
-const M2 = new Sphere(initializer.scene, 0.5, 128, 128, 0xf68afe, {x: 2, y: 9, z: 0}, 0.03)
+const M1 = new Sphere(initializer.scene, 0.75, 128, 128, 0xfaafff, {x: 2, y: 4, z: 0}, 0.04)
+const M2 = new Sphere(initializer.scene, 0.45, 128, 128, 0xd6aaff, {x: 2, y: 9, z: 0}, 0.03)
 const M1_parameters = {
     center: { x: 0, y: 0, z: 0 }, // Center of the orbit
     semiMajorAxis: 8,
