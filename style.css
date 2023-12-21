@@ -23,6 +23,7 @@ nav, footer {
 nav {
     background-color: #0f0f0f;
     text-align: center;
+    font-family: 'Silkscreen';
     padding: 10px 0; /* Vertical padding */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
@@ -211,3 +212,35 @@ p {
     transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
 
+/* mobile response */
+@media (max-width: 1000px) {
+    nav a, .contact-heading, h2, h3 {
+        font-size: larger; /* Larger text size for readability */
+    }
+
+    nav {
+        font-size: 50px;
+    }
+
+    a#intro {
+        font-size: 100px;
+    }
+
+    p {
+        font-size: 32px;
+        padding: 0px 24px;
+    }
+
+    a.styled-button {
+        padding: 12px 24px; /* Larger buttons for easier interaction */
+        font-size: 75px; /* Increased font size for buttons */
+    }
+
+    /* Adjust padding for grid items if necessary */
+    .grid-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Any other responsive adjustments */
+}
