@@ -169,6 +169,11 @@ p {
     aspect-ratio: 3 / 2;
 }
 
+.grid-item:hover {
+    transform: translateX(0px) translateY(-2px);
+    transform: scale(1.005);
+}
+
 .project-image {
     max-width: 100%;
     height: auto;
