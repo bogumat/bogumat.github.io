@@ -60,6 +60,7 @@ footer {
 }
 
 #canvas {
+    position: inherit;
     background-color: black;
     height: 100%;
     width: 100%;
@@ -95,10 +96,11 @@ a#intro {
 
 /* Generic Button Container */
 .button-container {
-    position: absolute;
-    bottom: 20px; /* Distance from bottom */
-    left: 50%; /* Center horizontally */
+    position: relative;
+    bottom: 0;
+    left: 50%;
     transform: translateX(-50%);
+    padding: 20px 0; /* Adjust padding as needed */
 }
 
 /* Generic Styled Button */
@@ -118,6 +120,10 @@ a.styled-button:hover {
     background-image: linear-gradient(to left, #4e54c8, #8f94fb);
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
     transform: translateX(-50%) translateY(-2px);
+}
+
+#back2top{
+    position: relative;
 }
 
 section {
@@ -180,6 +186,7 @@ p {
     display: block; /* Optional: Ensures the image is a block-level element */
     margin: 0 auto; /* Optional: Centers the image if it's smaller than the container */
     aspect-ratio: 3 / 2;
+    border-radius: 5px;
 }
 
 /* Contact Me */
@@ -219,9 +226,13 @@ p {
 
 /* mobile response */
 @media (max-width: 1000px) {
-    nav a, .contact-heading, h2, h3 {
+    nav a, .contact-heading {
         font-size: larger; /* Larger text size for readability */
     }
+
+    /* h2, h3 {
+        font-size: 40px;
+    } */
 
     nav {
         font-size: 50px;
@@ -238,7 +249,8 @@ p {
 
     a.styled-button {
         padding: 12px 24px; /* Larger buttons for easier interaction */
-        font-size: 75px; /* Increased font size for buttons */
+        font-size: 60px; /* Increased font size for buttons */
+        width: fit-content;
     }
 
     /* Adjust padding for grid items if necessary */
