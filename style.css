@@ -137,7 +137,7 @@ section {
     padding-bottom: 110px;
 }
 
-h2 {
+h1, h2 {
     position: relative;
     font-family: 'Silkscreen';
     color: white;
