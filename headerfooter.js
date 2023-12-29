@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.createElement('header');
     header.innerHTML = `
+      <link rel="icon" type="image/x-icon" href="/images/favicon.png">
       <nav>
         <a href="../index.html#projects">Projects</a>
         <a href="../index.html#contact">Contact</a>
