@@ -122,7 +122,7 @@ class Orbiter {
 }
 
 class MovableLight {
-    constructor(scene, radius = 0.25, color = 0xffffff, intensity = 100, distance = 100) {
+    constructor(scene, radius = 0.25, color = 0xffffff, intensity = 5, distance = 100) {
         this.light = new THREE.PointLight(color, intensity, distance);
         scene.add(this.light);
 
@@ -173,8 +173,8 @@ initializer.animate();
 // Add main moonlet to the scene
 const centreMoonlet = new Sphere(initializer.scene, 3.5, 400, 400, 0x421dff, { x: 0, y: 0, z: 0 }, 0.004);
 // Add orbiting Moonlet
-const M1 = new Sphere(initializer.scene, 0.75, 128, 128, 0xfaafff, {x: 2, y: 4, z: 0}, 0.04)
-const M2 = new Sphere(initializer.scene, 0.45, 128, 128, 0xd6aaff, {x: 2, y: 9, z: 0}, 0.03)
+const M1 = new Sphere(initializer.scene, 0.75, 128, 128, 0x5a5bfa, {x: 2, y: 4, z: 0}, 0.04)
+const M2 = new Sphere(initializer.scene, 0.45, 128, 128, 0x2b05ff, {x: 2, y: 9, z: 0}, 0.03)
 const M1_parameters = {
     center: { x: 0, y: 0, z: 0 }, // Center of the orbit
     semiMajorAxis: 8,
