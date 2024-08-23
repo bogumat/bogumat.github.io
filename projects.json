@@ -1,5 +1,17 @@
 [
     {
+<<<<<<< HEAD
+=======
+        "title": "I-400: An industrial FDM",
+        "imgSrc": "images/i400.png",
+        "info": "",
+        "problem": "",
+        "solution": "",
+        "link": "projects/genfab.html",
+        "year": 2024
+    },
+    {
+>>>>>>> 0680667 (corrupt repo)
         "title": "RossBob: A Painting Robot",
         "imgSrc": "images/rossbob.png",
         "info": "A hackathon submission which won some amazing prizes at the e/acc London Hackathon",
