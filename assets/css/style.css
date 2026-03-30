@@ -139,6 +139,15 @@ p {
     color: aliceblue;
 }
 
+p a {
+    color: #8ab4f8;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #aecbfa;
+}
+
 .summary {
     text-align: left;
     margin: 0 10%;
