@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div id="canvas-container">
+  <div id="canvas"></div>
+  <div id="welcome">
+    <a id="intro">I'm Matvey</a>
+    <p>Looking for hard problems.</p>
+    <p>I love designing robotic systems, space-tech and thinking about the future.</p>
+  </div>
+  <div class="projects-button-container">
+    <a href="#projects" class="styled-button" id="projects-button">Projects</a>
+  </div>
+</div>
+
+<section id="projects">
+  <h2>Some documented projects...</h2>
+  <div class="grid-section">
+    {% for project in site.data.projects %}
+    <a href="{{ project.link }}" class="grid-item">
+      <div class="project-item">
+        <img src="{{ project.imgSrc }}" alt="{{ project.title }}" class="project-image" loading="lazy">
+        <h3>{{ project.title }} {{ project.year }}</h3>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h1 class="contact-heading">Reach out to me.</h1>
+  <p>LinkedIn, Twitter, Email, Whatever</p>
+  <div class="contact-buttons">
+    <a href="https://twitter.com/matbogus" target="_blank" rel="noopener noreferrer" class="contact-icon"><i class="fab fa-twitter"></i></a>
+    <a href="mailto:hi@matvey.contact" class="contact-icon"><i class="fa fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/matvey-boguslavskiy" target="_blank" rel="noopener noreferrer" class="contact-icon"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</section>
+
+<section class="end">
+  <div class="button-container" id="back2top">
+    <a href="#top" class="styled-button">Back to Top</a>
+  </div>
+</section>
+
+<script src="/assets/js/moonlet.js"></script>

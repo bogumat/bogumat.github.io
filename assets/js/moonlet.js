@@ -51,7 +51,7 @@ class Sphere {
 
         const material = new THREE.MeshStandardMaterial({ color });
         const textureLoader = new THREE.TextureLoader();
-        const alphaTexture = textureLoader.load("images/texture-map.png");
+        const alphaTexture = textureLoader.load("/images/texture-map.png");
         material.alphaMap = alphaTexture;
         this.mesh = new THREE.Mesh(geometry, material);
         this.mesh.position.set(position.x, position.y, position.z);

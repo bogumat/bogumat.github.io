@@ -1,0 +1,11 @@
+title: Matvey Boguslavskiy
+description: "Personal portfolio — robotics, space-tech, and engineering projects."
+url: "https://www.matvey.contact"
+baseurl: ""
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

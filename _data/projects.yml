@@ -1,0 +1,59 @@
+- title: "I-400: An industrial FDM"
+  imgSrc: "/images/i400.png"
+  link: "/projects/genfab.html"
+  year: 2024
+
+- title: "RossBob: A Painting Robot"
+  imgSrc: "/images/rossbob.png"
+  link: "/projects/rossbob.html"
+  year: 2024
+
+- title: "MEng Thesis: Improving Astronaut Dexterity"
+  imgSrc: "/images/thesis.png"
+  link: "/projects/thesis.html"
+  year: 2023
+
+- title: "Continuum3D: Better 3D printer spaces"
+  imgSrc: "/images/c3d.png"
+  link: "/projects/c3d.html"
+  year: 2023
+
+- title: "Harbinger: Competition Rover"
+  imgSrc: "/images/iprl.png"
+  link: "/projects/iprl.html"
+  year: 2023
+
+- title: "Svarog: Interstellar CubeSat"
+  imgSrc: "/images/svarog.jpeg"
+  link: "/projects/svarog.html"
+  year: 2022
+
+- title: "SPOC: Distributing DoFs in Prosthetics"
+  imgSrc: "/images/spoc.png"
+  link: "/projects/spoc.html"
+  year: 2022
+
+- title: "OptiArch: Generative Architecture"
+  imgSrc: "/images/optiarch.png"
+  link: "/projects/optiarch.html"
+  year: 2022
+
+- title: "LumiRo.cc: Visualising Asteroids"
+  imgSrc: "/images/LumiRoccCover@4x.png"
+  link: "/projects/lumirocc.html"
+  year: 2021
+
+- title: "Autonomous Naval Signalling"
+  imgSrc: "/images/PolarisCover_2@4x.png"
+  link: "/projects/signalling.html"
+  year: 2021
+
+- title: "Axxel: Concussion Detection"
+  imgSrc: "/images/Axxel_1@4x.png"
+  link: "/projects/axxel.html"
+  year: 2020
+
+- title: "Modular CanSat"
+  imgSrc: "/images/CanSat.png"
+  link: "/projects/cansat2021.html"
+  year: 2020
