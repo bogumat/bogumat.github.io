@@ -1,0 +1,15 @@
+<div class="grid-section article-grid">
+  {% assign articles = site.data.articles | sort: "date" | reverse %}
+  {% for article in articles %}
+  <a href="{{ article.link | escape }}" class="grid-item article-card">
+    {% if article.image %}
+    <img src="{{ article.image | escape }}" alt="" class="article-cover"{% if article.imagePosition %} style="object-position: {{ article.imagePosition | escape }};"{% endif %} loading="lazy" decoding="async">
+    {% endif %}
+    <div class="article-card-content">
+      <time datetime="{{ article.date }}">{{ article.date | date: "%d %b %Y" }}</time>
+      <h3>{{ article.title | escape }}</h3>
+      <span class="article-card-link">Read on Substack <span aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+  {% endfor %}
+</div>

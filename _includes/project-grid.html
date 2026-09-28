@@ -1,0 +1,28 @@
+<div class="grid-section">
+  {% for project in site.data.projects %}
+  {% if project.comingSoon %}
+  <article class="grid-item is-coming-soon">
+  {% else %}
+  <a href="{{ project.link | escape }}" class="grid-item">
+  {% endif %}
+    <div class="project-item">
+      <div class="project-media">
+        <img src="{{ project.imgSrc | escape }}" alt="{{ project.title | escape }}" class="project-image" loading="lazy">
+        {% if project.comingSoon %}
+        <div class="project-coming-soon"><span>Coming soon</span></div>
+        {% endif %}
+      </div>
+      <div class="project-card-caption">
+        <h3>{{ project.title | escape }}</h3>
+        {% if project.year %}
+        <span class="project-year">{{ project.year }}</span>
+        {% endif %}
+      </div>
+    </div>
+  {% if project.comingSoon %}
+  </article>
+  {% else %}
+  </a>
+  {% endif %}
+  {% endfor %}
+</div>

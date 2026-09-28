@@ -1,0 +1,617 @@
+/* A small invitation to continue, revealed with the inspection copy. */
+#landing {
+    --pull-distance: 0px;
+    --pull-progress: 0;
+    --pull-accent: #c4b0ff;
+    overflow: clip;
+}
+
+#orbit-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    transform: translateY(calc(-1 * var(--pull-distance)));
+}
+
+.is-pulling #orbit-stage {
+    will-change: transform;
+}
+
+.has-external-selection {
+    touch-action: pan-x pinch-zoom;
+    overscroll-behavior-y: contain;
+}
+
+.orbit-scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    min-height: 48px;
+    color: var(--caption-accent);
+    text-decoration: none;
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.orbit-scroll-cue.is-ready {
+    pointer-events: auto;
+}
+
+.orbit-scroll-cue:focus-visible {
+    outline: 1px solid var(--caption-accent);
+    outline-offset: 8px;
+    border-radius: 4px;
+}
+
+.orbit-scroll-icon {
+    display: block;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+}
+
+.orbit-scroll-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 1.2;
+}
+
+.orbit-scroll-track {
+    opacity: 0.28;
+}
+
+.orbit-scroll-progress {
+    stroke-dasharray: 1;
+    stroke-dashoffset: calc(1 - var(--pull-progress));
+    stroke-width: 2;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.orbit-scroll-arrow {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: scroll-invitation 2.8s ease-in-out infinite;
+}
+
+.orbit-scroll-cue:hover .orbit-scroll-track {
+    opacity: 0.7;
+}
+
+.orbit-scroll-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    text-align: left;
+}
+
+#orbit-scroll-label {
+    font-family: 'Silkscreen', monospace;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+#orbit-scroll-destination {
+    color: #97929f;
+    font-size: 12px;
+    letter-spacing: 0.015em;
+}
+
+@keyframes scroll-invitation {
+    0%, 70%, 100% { transform: translateY(-2px); }
+    35% { transform: translateY(3px); }
+}
+
+/* The lower edge rises as the scene stretches away from it. */
+.orbit-pull {
+    position: absolute;
+    z-index: 7;
+    top: 100%;
+    left: -5%;
+    width: 110%;
+    height: 180px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    padding: 34px 24px;
+    border-top: 1px solid var(--pull-accent);
+    border-radius: 50% 50% 0 0 / 24px 24px 0 0;
+    background: radial-gradient(ellipse at 50% 0, color-mix(in srgb, var(--pull-accent) 14%, #0a0a0a), #070709 70%);
+    box-shadow: 0 -10px 60px color-mix(in srgb, var(--pull-accent) 10%, transparent);
+    color: var(--pull-accent);
+    transform: translateY(calc(-1 * var(--pull-distance)));
+    pointer-events: none;
+}
+
+.orbit-pull[aria-hidden="true"] {
+    visibility: hidden;
+}
+
+.orbit-pull-mark {
+    font-size: 30px;
+    line-height: 1;
+}
+
+#orbit-pull-status {
+    margin: 0 0 7px;
+    color: var(--pull-accent);
+    font-family: 'Silkscreen', monospace;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+}
+
+#orbit-pull-destination {
+    margin: 0;
+    color: #eae6f0;
+    font-size: 14px;
+}
+
+.is-pulling .orbit-scroll-arrow {
+    animation: none;
+    transform: translateY(calc(3px * var(--pull-progress)));
+}
+
+.is-opening .orbit-scroll-progress {
+    stroke-dashoffset: 0;
+}
+
+/* One type scale and content column for all three scroll destinations. */
+:root {
+    --collection-font: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+    --collection-width: 960px;
+}
+
+.home-collection {
+    --collection-accent: #c4b0ff;
+    padding: 100px 0 110px;
+    border-top: 1px solid #24282d;
+    background: #0a0a0a;
+    font-family: var(--collection-font);
+}
+
+.home-collection:focus {
+    outline: none;
+}
+
+[data-orbit-section][hidden] {
+    display: none;
+}
+
+#about {
+    min-height: 100svh;
+}
+
+#projects {
+    --collection-accent: #6bcfff;
+}
+
+#blog {
+    --collection-accent: #ff9a60;
+}
+
+.about-copy {
+    max-width: var(--collection-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.collection-title {
+    max-width: 760px;
+    margin: 0;
+    color: #edf0f3;
+    font-family: 'Silkscreen', monospace;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+}
+
+.about-copy .collection-title {
+    margin-bottom: 32px;
+}
+
+.about-copy p {
+    max-width: 64ch;
+    margin: 0 0 20px;
+    color: #aeb7c1;
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.8;
+    letter-spacing: 0;
+}
+
+.about-copy a {
+    color: var(--collection-accent);
+    text-decoration-color: color-mix(in srgb, var(--collection-accent) 55%, transparent);
+    text-underline-offset: 0.18em;
+}
+
+.about-copy a:hover {
+    color: #fff;
+}
+
+.about-copy a:focus-visible {
+    outline: 1px solid var(--collection-accent);
+    outline-offset: 5px;
+}
+
+.about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+    font-size: 13px;
+}
+
+.about-links .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--collection-accent) 35%, #24282d);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--collection-accent);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+
+.about-links .social-link:hover,
+.about-links .social-link:focus-visible,
+.about-contact[open] > .social-link {
+    border-color: var(--collection-accent);
+    background: color-mix(in srgb, var(--collection-accent) 10%, #0a0a0a);
+    color: #edf0f3;
+}
+
+.profile-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.about-contact {
+    position: relative;
+}
+
+.about-contact summary {
+    list-style: none;
+}
+
+.about-contact summary::-webkit-details-marker {
+    display: none;
+}
+
+.about-contact summary:focus-visible,
+.contact-options button:focus-visible {
+    outline: 1px solid var(--collection-accent);
+    outline-offset: 5px;
+}
+
+.contact-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 10;
+    width: min(300px, calc(100vw - 40px));
+    padding: 16px;
+    border: 1px solid #353d45;
+    background: #111416;
+    box-shadow: 0 8px 24px #0008;
+}
+
+.contact-options .contact-email {
+    display: block;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    user-select: all;
+    text-decoration: underline;
+}
+
+.contact-options button {
+    padding: 8px 12px;
+    border: 1px solid #65717c;
+    background: transparent;
+    color: var(--collection-accent);
+    font: inherit;
+    cursor: pointer;
+}
+
+.contact-options button:hover {
+    border-color: var(--collection-accent);
+    background: #20262c;
+}
+
+.about-copy .contact-status {
+    margin: 12px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.contact-status:empty {
+    display: none;
+}
+
+.collection-nav {
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    font-family: 'Silkscreen', monospace;
+    font-size: 11px;
+}
+
+.collection-nav a {
+    display: inline-flex;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    color: #99a3ad;
+    text-decoration: none;
+}
+
+.collection-nav a[aria-current] {
+    border-color: var(--collection-accent);
+    color: #edf0f3;
+}
+
+.collection-nav span {
+    color: var(--collection-accent);
+    font-size: 9px;
+}
+
+.collection-nav a:hover {
+    color: #fff;
+}
+
+.collection-nav a:focus-visible {
+    outline: 1px solid var(--collection-accent);
+    outline-offset: 5px;
+}
+
+.collection-heading,
+.collection-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: var(--collection-width);
+    margin: 0 auto 64px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.collection-intro {
+    margin-bottom: 32px;
+}
+
+.back-to-orbit {
+    color: #99a3ad;
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.back-to-orbit span {
+    margin-left: 10px;
+    color: var(--collection-accent, #c4b0ff);
+}
+
+/* The shared card includes also serve the standalone project archive. */
+.home-collection .grid-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: var(--collection-width);
+    margin-top: 0;
+    padding: 0 20px;
+}
+
+.grid-item {
+    overflow: hidden;
+    aspect-ratio: auto;
+    border: 1px solid #24282d;
+    border-radius: 2px;
+    font-family: var(--collection-font);
+    text-align: left;
+}
+
+.grid-item:hover, .grid-item:focus-visible {
+    border-color: var(--collection-accent, #c4b0ff);
+}
+
+.grid-item:focus-visible, .back-to-orbit:focus-visible {
+    outline: 1px solid var(--collection-accent, #c4b0ff);
+    outline-offset: 4px;
+}
+
+.project-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.project-media {
+    position: relative;
+}
+
+.project-coming-soon {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(#0001, #0005);
+    pointer-events: none;
+}
+
+.project-coming-soon span {
+    padding: 12px 18px;
+    border: 1px solid color-mix(in srgb, var(--collection-accent) 60%, transparent);
+    border-radius: 2px;
+    background: #090e13eb;
+    color: var(--collection-accent);
+    font-family: 'Silkscreen', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+.grid-item.is-coming-soon,
+.grid-item.is-coming-soon:hover {
+    border-color: #24282d;
+    cursor: default;
+    transform: none;
+}
+
+.project-card-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px;
+}
+
+.project-card-caption h3,
+.article-card h3 {
+    margin: 0;
+    color: #edf0f3;
+    font-family: var(--collection-font);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+.project-year {
+    padding-top: 3px;
+    color: var(--collection-accent, #6bcfff);
+    font-size: 11px;
+}
+
+.article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.article-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.article-card time {
+    color: #99a3ad;
+    font-size: 11px;
+}
+
+.article-card h3 {
+    margin: 14px 0 24px;
+}
+
+.article-card-link {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-top: auto;
+    color: var(--collection-accent, #ff9a60);
+    font-size: 12px;
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+    .orbit-scroll-cue {
+        gap: 12px;
+        margin-top: 20px;
+        min-height: 44px;
+    }
+
+    .orbit-scroll-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    #orbit-scroll-label {
+        font-size: 9px;
+    }
+
+    #orbit-scroll-destination {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-collection .grid-section,
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 48px;
+    }
+
+    .about-contact[open] {
+        flex-basis: 100%;
+    }
+
+    .contact-options {
+        position: static;
+        width: min(300px, 100%);
+        margin-top: 8px;
+    }
+
+    .project-card-caption h3,
+    .article-card h3 {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html, body {
+        scroll-behavior: auto;
+    }
+
+    #orbit-stage, .orbit-scroll-arrow, .is-pulling .orbit-scroll-arrow {
+        animation: none;
+        transform: none;
+    }
+
+    .orbit-pull {
+        top: auto;
+        bottom: 0;
+        height: 110px;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .grid-item,
+    .about-links .social-link {
+        transition: none;
+    }
+}

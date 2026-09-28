@@ -10,53 +10,323 @@ body, html {
     scroll-behavior: smooth;
 }
 
-/* Nav and Footer */
-nav, footer {
+/* Site header and footer */
+footer {
     background-color: #0f0f0f;
     text-align: center;
     padding: 10px;
-}
-
-nav {
-    font-family: 'Silkscreen', cursive;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #4e54c8;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-}
-
-footer {
     color: azure;
 }
 
+.site-header {
+    position: relative;
+    z-index: 20;
+    background: #0a0a0a;
+}
+
+.page-home .site-header {
+    position: absolute;
+    inset: 0 0 auto;
+    background: linear-gradient(#050505 10%, rgba(5, 5, 5, 0.8) 70%, transparent);
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 84px;
+    padding: 22px clamp(24px, 5vw, 88px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Silkscreen', monospace;
+}
+
+.site-nav a {
+    color: #c2bfca;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover, .site-nav a:focus-visible {
+    color: #fff;
+}
+
+.site-nav a:focus-visible {
+    outline: 1px solid #c4b0ff;
+    outline-offset: 7px;
+}
+
+.site-nav .site-brand {
+    color: #fff;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.site-brand span {
+    color: #a99ac5;
+}
+
+.site-nav-links {
+    display: flex;
+    gap: clamp(18px, 3vw, 40px);
+    font-size: 13px;
+}
+
 /* Hero Canvas */
-#canvas-container {
+#landing {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 #canvas {
+    line-height: 0;
     position: inherit;
     background-color: black;
     height: 100%;
     width: 100%;
     user-select: none;
     -webkit-touch-callout: none;
+}
+
+/* Only gestures beginning on the Moon rotate it; the rest of the hero can scroll. */
+.moon-drag-target {
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: grab;
+    touch-action: pinch-zoom;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.moon-drag-target.is-grabbing {
+    cursor: grabbing;
+}
+
+.moon-drag-target:focus-visible {
+    outline: 1px solid #c4b0ff;
+    outline-offset: 5px;
+}
+
+/* A quiet coordinate clue beside the highlighted lunar craters. */
+.moon-coordinates {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: #e6c78b;
+    font-family: var(--collection-font);
+    font-size: clamp(9px, 0.8vw, 10px);
+    line-height: 1.4;
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 0 1px 5px #000, 0 0 8px #000;
+}
+
+/* Invisible, keyboard-accessible inspection targets; no popup labels. */
+.orbit-target {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+}
+
+.orbit-target:focus-visible {
+    opacity: 1;
+    outline: 1px solid #c4b0ff;
+    outline-offset: 3px;
+}
+
+/* Inspection copy shares the foreground object's animation progress. */
+.orbit-caption {
+    --caption-reveal: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    padding: clamp(24px, 5vw, 88px);
+    opacity: var(--caption-reveal);
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.62) 35%, transparent 66%);
+}
+
+.orbit-caption[aria-hidden="true"] {
+    visibility: hidden;
+}
+
+.orbit-caption-copy {
+    width: min(43vw, 35rem);
+    transform: translateY(calc(16px - 16px * var(--caption-reveal)));
+}
+
+.orbit-caption-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 26px;
+    color: var(--caption-accent);
+    font-family: 'Silkscreen', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.orbit-caption-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    flex-shrink: 0;
+    background: currentColor;
+    box-shadow: 0 0 16px var(--caption-accent);
+}
+
+.orbit-caption-title {
+    margin: 0;
+    color: #f8f6fc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(56px, 7.7vw, 112px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+.has-long-title .orbit-caption-title {
+    font-size: clamp(34px, 4.2vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+}
+
+.orbit-caption-description {
+    max-width: 360px;
+    margin: 26px 0 0;
+    color: #b8b5c2;
+    font-size: 15px;
+    line-height: 1.75;
+    text-wrap: pretty;
+}
+
+@media (max-width: 700px) {
+    .site-nav {
+        min-height: 68px;
+        gap: 12px;
+        padding: 20px 18px;
+    }
+
+    .site-nav .site-brand {
+        font-size: 13px;
+    }
+
+    .site-nav-links {
+        gap: 14px;
+        font-size: 10px;
+    }
+
+    .orbit-caption {
+        align-items: flex-end;
+        padding: 24px 24px max(30px, env(safe-area-inset-bottom));
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.8) 24%, transparent 62%);
+    }
+
+    .orbit-caption-copy {
+        width: 100%;
+    }
+
+    .orbit-caption-eyebrow {
+        gap: 10px;
+        margin-bottom: 16px;
+        font-size: 9px;
+    }
+
+    .orbit-caption-eyebrow::before {
+        width: 24px;
+    }
+
+    .orbit-caption-title {
+        font-size: clamp(48px, 12vw, 72px);
+    }
+
+    .has-long-title .orbit-caption-title {
+        max-width: 470px;
+        font-size: clamp(29px, 7.8vw, 44px);
+    }
+
+    .orbit-caption-description {
+        margin-top: 18px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+}
+
+@media (max-height: 500px) and (min-width: 701px) {
+    .site-nav {
+        min-height: 60px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .orbit-caption {
+        padding-top: 76px;
+    }
+
+    .orbit-caption-eyebrow {
+        margin-bottom: 14px;
+    }
+
+    .orbit-caption-title {
+        font-size: 54px;
+    }
+
+    .has-long-title .orbit-caption-title {
+        font-size: 32px;
+    }
+
+    .orbit-caption-description {
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+}
+
+@media (max-width: 380px) {
+    .site-nav {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .site-nav .site-brand {
+        font-size: 11px;
+    }
+
+    .site-nav-links {
+        gap: 10px;
+        font-size: 9px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-nav a {
+        transition: none;
+    }
+
+    .orbit-caption-copy {
+        transform: none;
+    }
 }
 
 #welcome {
@@ -255,11 +525,6 @@ p a:hover {
 
 /* Responsive - Mobile */
 @media (max-width: 480px) {
-    nav a {
-        font-size: 14px;
-        margin: 0 8px;
-    }
-
     a#intro {
         font-size: 24px;
     }

@@ -2,8 +2,41 @@
 layout: default
 ---
 
-<div id="canvas-container">
+<div id="landing">
+  <div id="orbit-stage">
   <div id="canvas"></div>
+  <button id="moon-drag-target" class="moon-drag-target" type="button" hidden aria-label="Rotate the Moon: drag, or use arrow keys. Home resets the view."></button>
+  <span id="moon-coordinates" class="moon-coordinates" hidden></span>
+  <div id="orbit-links" role="group" aria-label="Inspect orbiting objects"></div>
+  <aside id="orbit-caption" class="orbit-caption" aria-labelledby="orbit-caption-title" aria-hidden="true">
+    <div class="orbit-caption-copy" aria-live="polite" aria-atomic="true">
+      <p class="orbit-caption-eyebrow" id="orbit-caption-eyebrow"></p>
+      <h2 class="orbit-caption-title" id="orbit-caption-title"></h2>
+      <p class="orbit-caption-description" id="orbit-caption-description"></p>
+      <a id="orbit-scroll-cue" class="orbit-scroll-cue" href="#projects" tabindex="-1">
+        <span class="orbit-scroll-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle class="orbit-scroll-track" cx="24" cy="24" r="22" />
+            <circle class="orbit-scroll-progress" cx="24" cy="24" r="22" pathLength="1" />
+            <path class="orbit-scroll-arrow" d="M24 15v18m-6-6 6 6 6-6" />
+          </svg>
+        </span>
+        <span class="orbit-scroll-copy">
+          <span id="orbit-scroll-label">Scroll to explore</span>
+          <span id="orbit-scroll-destination">The projects</span>
+        </span>
+      </a>
+    </div>
+  </aside>
+  </div>
+  <div id="orbit-pull" class="orbit-pull" aria-hidden="true">
+    <span class="orbit-pull-mark" aria-hidden="true">↗</span>
+    <div>
+      <p id="orbit-pull-status">Keep scrolling to open</p>
+      <p id="orbit-pull-destination"></p>
+    </div>
+  </div>
+  {% comment %}Temporarily hidden during the September 2026 restyle.
   <div id="welcome">
     <a id="intro">I'm Matvey</a>
     <p>Looking for hard problems.</p>
@@ -13,22 +46,54 @@ layout: default
   <div class="projects-button-container">
     <a href="#projects" class="styled-button" id="projects-button">Projects</a>
   </div>
+  {% endcomment %}
 </div>
 
-<section id="projects">
-  <h2>Some documented projects...</h2>
-  <div class="grid-section">
-    {% for project in site.data.projects %}
-    <a href="{{ project.link }}" class="grid-item">
-      <div class="project-item">
-        <img src="{{ project.imgSrc }}" alt="{{ project.title }}" class="project-image" loading="lazy">
-        <h3>{{ project.title }} {{ project.year }}</h3>
-      </div>
-    </a>
-    {% endfor %}
+<section id="about" class="home-collection" data-orbit-section aria-labelledby="about-heading" tabindex="-1">
+  {% include collection-header.html current="about" %}
+  <div class="about-copy">
+    <h2 id="about-heading" class="collection-title">Looking for hard problems.</h2>
+    <p>I love designing robotic systems, space-tech, and thinking about the future.</p>
+    <p>I run the Society for Technological Advancement (SoTA) - <a href="https://ilikethefuture.com">ilikethefuture.com</a></p>
+    <div class="about-links">
+      <details class="about-contact" data-contact>
+        <summary class="social-link" aria-label="Get in touch" title="Get in touch">
+          {% include contact-icon.html name="email" %}
+        </summary>
+        <div class="contact-options">
+          <a href="mailto:hi@matvey.contact" class="contact-email">hi@matvey.contact</a>
+          <button type="button" data-copy-email hidden>Copy email</button>
+          <p class="contact-status" role="status"></p>
+        </div>
+      </details>
+      <a href="https://www.linkedin.com/in/matvey-boguslavskiy" class="social-link" aria-label="LinkedIn — Matvey Boguslavskiy" title="LinkedIn">
+        {% include contact-icon.html name="linkedin" %}
+      </a>
+      <a href="https://x.com/matbogus" class="social-link" aria-label="X / Twitter — @matbogus" title="X / Twitter — @matbogus">
+        {% include contact-icon.html name="x" %}
+      </a>
+    </div>
   </div>
 </section>
 
+<section id="projects" class="home-collection" data-orbit-section aria-labelledby="projects-heading" tabindex="-1">
+  {% include collection-header.html current="projects" %}
+  <div class="collection-intro">
+    <h2 id="projects-heading" class="collection-title">Projects</h2>
+  </div>
+  {% include project-grid.html %}
+</section>
+
+<section id="blog" class="home-collection" data-orbit-section aria-labelledby="blog-heading" tabindex="-1">
+  {% include collection-header.html current="blog" %}
+  <div class="collection-intro">
+    <h2 id="blog-heading" class="collection-title">Blog</h2>
+    <a href="https://matbogus.substack.com/" class="back-to-orbit">On Substack <span aria-hidden="true">↗</span></a>
+  </div>
+  {% include article-grid.html %}
+</section>
+
+{% comment %}Temporarily hidden during the September 2026 restyle.
 <section class="contact" id="contact">
   <h1 class="contact-heading">Reach out to me.</h1>
   <p>LinkedIn, Twitter, Email, Whatever</p>
@@ -45,4 +110,7 @@ layout: default
   </div>
 </section>
 
-<script src="/assets/js/moonlet.js"></script>
+{% endcomment %}
+
+<script src="/assets/js/moonlet.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/assets/js/contact.js?v={{ site.time | date: '%s' }}" defer></script>
