@@ -9,13 +9,7 @@ function configureShadowLight(light, resolution = 512) {
     light.shadow.normalBias = 0.015;
 }
 
-function createOrbitingBody(scene, definition, bumpiness) {
-    if (!definition.model) {
-        const sphere = new Sphere(scene, definition.radius, 96, 96,
-            definition.color, { x: 0, y: 0, z: 0 }, bumpiness);
-        return sphere;
-    }
-
+function createOrbitingBody(scene, definition) {
     const mesh = new THREE.Group();
     scene.add(mesh);
     // A simple silhouette remains usable if the model fails to load.
@@ -72,7 +66,6 @@ function createOrbitingBody(scene, definition, bumpiness) {
         if (definition.beaconLight) {
             // Two opposite beacons represent the two banks of corner lights.
             // This keeps real occlusion without eight extra cube shadow maps.
-            model.updateMatrixWorld(true);
             const positions = [];
             model.traverse(object => {
                 if (object.isMesh && object.name.startsWith('Blue_corner_beacon')) {
@@ -84,21 +77,18 @@ function createOrbitingBody(scene, definition, bumpiness) {
                 const center = positions.reduce((sum, p) => sum.add(p), new THREE.Vector3())
                     .divideScalar(positions.length);
                 const { color, intensity, distance } = definition.beaconLight;
-                mesh.userData.beaconLights = [positions[0], positions[positions.length - 1]].map(position => {
+                [positions[0], positions[positions.length - 1]].forEach(position => {
                     const light = new THREE.PointLight(color, intensity, distance);
                     // Move just outside the lens and frame to avoid self-blocking.
                     light.position.copy(position).addScaledVector(
                         position.clone().sub(center).normalize(), 0.035);
                     configureShadowLight(light, 256);
                     mesh.add(light);
-                    return light;
                 });
             }
         }
         if (definition.eyeLight) {
-            model.updateMatrixWorld(true);
             const { color, intensity, distance } = definition.eyeLight;
-            const lights = [];
             model.traverse(object => {
                 if (!object.isMesh || !object.userData.emissiveSurface) return;
                 const light = new THREE.PointLight(color, intensity, distance);
@@ -107,9 +97,7 @@ function createOrbitingBody(scene, definition, bumpiness) {
                 light.position.z += 0.06;
                 configureShadowLight(light, 256);
                 mesh.add(light);
-                lights.push(light);
             });
-            mesh.userData.eyeLights = lights;
         }
         mesh.remove(placeholder);
         placeholder.geometry.dispose();
@@ -129,5 +117,5 @@ function createOrbitingBody(scene, definition, bumpiness) {
         mesh.add(light);
         mesh.userData.coverLight = light;
     }
-    return { mesh };
+    return mesh;
 }

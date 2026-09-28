@@ -29,38 +29,34 @@ class SceneInitializer {
 
 }
 
-class Sphere {
-    constructor(scene, radius = 1, widthSegments = 32, heightSegments = 32, color = 0x000000, position = { x: 0, y: 0, z: 0 }, bumpiness = 0.1) {
-        const geometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
-        geometry.computeVertexNormals();
-        const positionAttribute = geometry.attributes.position;
-        const vertex = new THREE.Vector3();
-
-        // Basic Perlin-like noise function
-        function noise() {
-            return Math.random();
-        }
-
-        // Apply noise to each vertex
-        for (let i = 0; i < positionAttribute.count; i++) {
-            vertex.fromBufferAttribute(positionAttribute, i);
-            const noiseValue = noise() * bumpiness;
-            vertex.multiplyScalar(1 + noiseValue);
-            positionAttribute.setXYZ(i, vertex.x, vertex.y, vertex.z);
-        }
-
-        geometry.computeVertexNormals(); // Recompute normals after altering geometry
-
-        const material = new THREE.MeshStandardMaterial({ color });
-        const textureLoader = new THREE.TextureLoader();
-        const alphaTexture = textureLoader.load("/images/texture-map.png");
-        material.alphaMap = alphaTexture;
-        this.mesh = new THREE.Mesh(geometry, material);
-        this.mesh.castShadow = true;
-        this.mesh.receiveShadow = true;
-        this.mesh.position.set(position.x, position.y, position.z);
-        scene.add(this.mesh);
-    }
+function createMoon(scene, relief) {
+    const geometry = new THREE.SphereGeometry(3.5, 400, 400);
+    geometry.computeVertexNormals();
+    // NASA's Scientific Visualization Studio, CGI Moon Kit.
+    // Source and credits: https://svs.gsfc.nasa.gov/4720/
+    const loader = new THREE.TextureLoader();
+    const colorMap = loader.load('/images/textures/moon-color-2k.jpg');
+    colorMap.encoding = THREE.sRGBEncoding;
+    // Height data stays linear; only the color map uses sRGB encoding.
+    const heightMap = loader.load('/images/textures/moon-height-1k.png');
+    heightMap.encoding = THREE.LinearEncoding;
+    const material = new THREE.MeshStandardMaterial({
+        color: 0xc4b0ff,
+        roughness: 1,
+        map: colorMap,
+        displacementMap: heightMap,
+        displacementScale: relief,
+        displacementBias: -relief / 2,
+        bumpMap: heightMap,
+        bumpScale: relief,
+    });
+    const moon = new THREE.Mesh(geometry, material);
+    moon.castShadow = true;
+    moon.receiveShadow = true;
+    // Face the near side and tip the southern highlands into view.
+    moon.rotation.set(THREE.MathUtils.degToRad(-35), -Math.PI / 2, 0);
+    scene.add(moon);
+    return moon;
 }
 
 // One shared phase keeps all n objects exactly 360/n degrees apart.
@@ -108,7 +104,6 @@ class MovableLight {
         const haloMaterial = new THREE.MeshBasicMaterial({ 
             color: color,
             transparent: true,
-            // alphaMap: "images/sun-texture.jpeg",
             opacity: 0.02,
             side: THREE.DoubleSide
         });
@@ -140,29 +135,11 @@ class MovableLight {
 // Initialize the scene
 const initializer = new SceneInitializer('canvas');
 
-// Add main moonlet to the scene
-const centreMoonlet = new Sphere(initializer.scene, 3.5, 400, 400, 0xc4b0ff, { x: 0, y: 0, z: 0 }, 0);
-// Lunar color map: NASA's Scientific Visualization Studio, CGI Moon Kit.
-// Source and credits: https://svs.gsfc.nasa.gov/4720/
-const moonTexture = new THREE.TextureLoader().load('/images/textures/moon-color-2k.jpg');
-moonTexture.encoding = THREE.sRGBEncoding;
 initializer.renderer.outputEncoding = THREE.sRGBEncoding;
-centreMoonlet.mesh.material.map = moonTexture;
-centreMoonlet.mesh.material.alphaMap = null;
-centreMoonlet.mesh.material.roughness = 1;
-// LOLA elevation data: displace the silhouette and shade finer surface relief.
-// Height data stays linear; only the color map uses sRGB encoding.
-const moonHeightTexture = new THREE.TextureLoader().load('/images/textures/moon-height-1k.png');
-moonHeightTexture.encoding = THREE.LinearEncoding;
 const moonRelief = 0.08; // Slightly exaggerated relief for the 3.5-unit radius.
-centreMoonlet.mesh.material.displacementMap = moonHeightTexture;
-centreMoonlet.mesh.material.displacementScale = moonRelief;
-centreMoonlet.mesh.material.displacementBias = -moonRelief / 2;
-centreMoonlet.mesh.material.bumpMap = moonHeightTexture;
-centreMoonlet.mesh.material.bumpScale = moonRelief;
-// Face the near side and tip the southern highlands into view.
-centreMoonlet.mesh.rotation.set(THREE.MathUtils.degToRad(-35), -Math.PI / 2, 0);
-const moonFeatures = new MoonFeatures(centreMoonlet.mesh, moonRelief);
+const moon = createMoon(initializer.scene, moonRelief);
+const moonFeatures = new MoonFeatures(moon, moonRelief);
+const moonLibration = new MoonLibration(moon);
 // Model-specific appearance; orbit and display size are shared below.
 const planetoidDefinitions = [
     {
@@ -196,19 +173,18 @@ const planetoidDefinitions = [
     }
 ].map(definition => ({ ...definition, radius: 1.3, displaySize: 1.8 }));
 const sharedOrbitRadius = 6.5;
-const orbitBumpiness = 0.03;
 const linkLayer = document.getElementById('orbit-links');
 initializer.framingRadius = sharedOrbitRadius + planetoidDefinitions[0].radius + 0.3;
 initializer.onWindowResize();
 const planetoids = planetoidDefinitions.map(definition => {
-    const body = createOrbitingBody(initializer.scene, definition, orbitBumpiness);
+    const mesh = createOrbitingBody(initializer.scene, definition);
     const button = document.createElement('button');
     button.className = 'orbit-target';
     button.type = 'button';
     button.setAttribute('aria-label', `Inspect ${definition.label}`);
     button.setAttribute('aria-pressed', 'false');
     linkLayer.appendChild(button);
-    return { mesh: body.mesh, button, definition };
+    return { mesh, button, definition };
 });
 const sharedOrbit = new SharedOrbit(planetoids, sharedOrbitRadius);
 const inspection = new OrbitInspection(initializer);
@@ -217,9 +193,8 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let pointerInside = false;
 let hoverArmed = true;
-let hoveredPlanetoid = null;
 const navigationCanvas = initializer.renderer.domElement;
-const moonOccluder = new THREE.Sphere(centreMoonlet.mesh.position, 3.5 + moonRelief / 2);
+const moonOccluder = new THREE.Sphere(moon.position, 3.5 + moonRelief / 2);
 const occlusionPoint = new THREE.Vector3();
 const pickPlanetoid = position => {
     raycaster.setFromCamera(position, initializer.camera);
@@ -243,8 +218,8 @@ function setPointer(event) {
         -(event.clientY - bounds.top) / bounds.height * 2 + 1);
 }
 const navigationRegion = document.getElementById('landing');
-const moonDrag = new MoonDrag(centreMoonlet.mesh, initializer.camera, navigationCanvas,
-    document.getElementById('moon-drag-target'), moonOccluder.radius);
+const moonDrag = new MoonDrag(moon, initializer.camera, navigationCanvas,
+    document.getElementById('moon-drag-target'), moonOccluder.radius, () => moonLibration.rebase());
 function dismissInspection() {
     hoverArmed = false;
     inspection.close();
@@ -307,7 +282,7 @@ window.addEventListener('scroll', () => {
 function updateNavigation() {
     initializer.scene.updateMatrixWorld(true);
     initializer.camera.updateMatrixWorld(true);
-    hoveredPlanetoid = pointerInside && !inspection.active && !moonDrag.active && window.scrollY < 4 ? pickPlanetoid(pointer) : null;
+    const hoveredPlanetoid = pointerInside && !inspection.active && !moonDrag.active && window.scrollY < 4 ? pickPlanetoid(pointer) : null;
     navigationCanvas.style.cursor = moonDrag.active ? 'grabbing' : inspection.active ? 'zoom-out' : hoveredPlanetoid ? 'zoom-in' : '';
     if (hoveredPlanetoid && hoverArmed) inspection.begin(hoveredPlanetoid, 'mouse', pointer);
     for (const item of planetoids) {
@@ -345,6 +320,7 @@ function animate() {
     sharedOrbit.update(delta);
     orbitScroll.update(delta);
     moonDrag.update(!inspection.active && !orbitScroll.isPulling);
+    moonLibration.update(delta, document.hidden || moonDrag.active || document.activeElement === moonDrag.target);
     updateNavigation();
     if (!inspection.active && !moonDrag.active) {
         movableLight.update();

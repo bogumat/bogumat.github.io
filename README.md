@@ -24,11 +24,15 @@ Add a link and remove `comingSoon` when the page is ready; `year` is optional.
 ## Structure
 
 - `_layouts/` — page templates (default, home, project)
-- `_includes/` — shared partials (head, nav, footer)
+- `_includes/` — shared metadata, navigation, collection grids, and contact icons
 - `_data/projects.yml` — project list
 - `assets/` — CSS and JS
 - `images/` — project images
-- `moonlet.js` — Three.js hero animation (v0.125.2)
+- `assets/js/moonlet.js` — Three.js hero animation (v0.125.2)
+- `assets/css/style.css` — shared page, header, project detail, and hero styles
+- `assets/css/orbit-scroll.css` — orbit scroll interaction and collection/card styles
+- `tools/modeling/` — editable Blender sources and scripts for the three live models;
+  excluded from the published site
 
 ## Texture credits
 
@@ -56,12 +60,21 @@ surname easter egg, without a name or pointer. Both stay visible while orbiting
 objects fly forward, remain selected, and return to orbit.
 Small satellite craters are below the texture's resolved detail.
 
+`assets/js/moon-libration.js` adds a gentle approximation of
+[lunar libration](https://science.nasa.gov/moon/moon-phases/): ±7.9° east/west
+and ±6.7° north/south. The illustrative 48- and 40-second cycles are sped up
+for the site, rather than following an astronomical ephemeris. Adjust the
+amplitudes and periods in `MoonLibration` to tune the motion. The crater markers
+move with the surface. Libration pauses during dragging, Moon keyboard focus,
+and while the tab is hidden; it is disabled with reduced-motion preferences.
+
 Drag the Moon to rotate it directly under the pointer or finger. The highlighted
 craters rotate with the surface; their coordinates follow when they face the camera.
 `assets/js/moon-drag.js` maps the grabbed surface point to the pointer using a sphere
 intersection and quaternion rotation. Pointer capture holds the grab outside the
-Moon, and release stops the rotation. The light stays still during a grab while the
-icons continue orbiting. Touch gestures outside the Moon retain normal scrolling.
+Moon. Release stops the manual rotation, then libration resumes smoothly around
+the chosen orientation. The light stays still during a grab while the icons continue
+orbiting. Touch gestures outside the Moon retain normal scrolling.
 Focus the Moon and use arrow keys to rotate it, or Home to restore its starting view.
 
 ## Orbit navigation

@@ -1,10 +1,11 @@
 // Rotate the Moon around the surface point being grabbed, without moving its orbit.
 class MoonDrag {
-    constructor(moon, camera, canvas, target, radius) {
+    constructor(moon, camera, canvas, target, radius, onRotate = () => {}) {
         this.moon = moon;
         this.camera = camera;
         this.canvas = canvas;
         this.target = target;
+        this.onRotate = onRotate;
         this.sphere = new THREE.Sphere(new THREE.Vector3(), radius);
         this.raycaster = new THREE.Raycaster();
         this.pointer = new THREE.Vector2();
@@ -88,6 +89,7 @@ class MoonDrag {
         this.surfaceDirection(event, this.current);
         this.rotation.setFromUnitVectors(this.start, this.current);
         this.moon.quaternion.copy(this.startRotation).premultiply(this.rotation).normalize();
+        this.onRotate();
     }
 
     release() {
@@ -115,6 +117,7 @@ class MoonDrag {
             this.rotation.setFromAxisAngle(new THREE.Vector3(...axes[event.key]), Math.PI / 36);
             this.moon.quaternion.premultiply(this.rotation).normalize();
         }
+        this.onRotate();
     }
 
     update(enabled) {

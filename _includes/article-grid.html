@@ -1,4 +1,4 @@
-<div class="grid-section article-grid">
+<div class="grid-section">
   {% assign articles = site.data.articles | sort: "date" | reverse %}
   {% for article in articles %}
   <a href="{{ article.link | escape }}" class="grid-item article-card">

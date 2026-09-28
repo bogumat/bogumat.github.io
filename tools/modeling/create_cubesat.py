@@ -1,7 +1,6 @@
 """Svarog-inspired 3U CubeSat with a stowed sail, not a flight-hardware replica."""
 import bpy
 from pathlib import Path
-from mathutils import Vector
 ROOT = Path(__file__).resolve().parents[2]
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
@@ -30,11 +29,6 @@ def box(name, loc, dims, material, bevel=0.012):
         bpy.ops.object.modifier_apply(modifier=b.name)
         o.modifiers.new('Corner normals','WEIGHTED_NORMAL')
     return o
-
-def beam(name, a, b, width, material):
-    a,b=Vector(a),Vector(b)
-    o=box(name,(a+b)/2,(width,width,(b-a).length),material,0.003)
-    o.rotation_euler=(b-a).to_track_quat('Z','Y').to_euler()
 
 # Three stacked 1U bays; sail package occupies the middle bay.
 for x in [-0.46,0.46]:
