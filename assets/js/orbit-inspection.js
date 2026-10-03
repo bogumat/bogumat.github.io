@@ -14,6 +14,10 @@ class OrbitInspection {
         this.captionTitle = document.getElementById('orbit-caption-title');
         this.captionEyebrow = document.getElementById('orbit-caption-eyebrow');
         this.captionDescription = document.getElementById('orbit-caption-description');
+        this.previewRotation = new THREE.Quaternion();
+        this.previewRotationDelta = new THREE.Quaternion();
+        this.appliedPreviewRotation = new THREE.Quaternion();
+        this.previewRotationEuler = new THREE.Euler(0, 0, 0, 'XYZ');
         const key = new THREE.DirectionalLight(0xfff5ef, 1.3);
         key.position.set(-3, 4, 5);
         const fill = new THREE.DirectionalLight(0xaecaff, 0.35);
@@ -35,6 +39,7 @@ class OrbitInspection {
         this.trigger = pointer.clone();
         this.progress = 0;
         this.returning = false;
+        this.resetPreviewRotation();
         this.arcDirection = Math.sign(item.mesh.position.x || 1);
         this.preview = new THREE.Group();
         // Clone only model geometry, excluding orbital lights and their metadata.
@@ -76,6 +81,17 @@ class OrbitInspection {
         if (this.active) this.returning = true;
     }
 
+    rotatePreview(deltaX, deltaY, sensitivity = 0.008) {
+        if (!this.active || this.returning || this.progress < 0.9) return;
+        this.previewRotationEuler.set(deltaY * sensitivity, deltaX * sensitivity, 0);
+        this.previewRotationDelta.setFromEuler(this.previewRotationEuler);
+        this.previewRotation.premultiply(this.previewRotationDelta).normalize();
+    }
+
+    resetPreviewRotation() {
+        this.previewRotation.set(0, 0, 0, 1);
+    }
+
     keepHover(pointer) {
         // Keep a corridor between the original hover location and the enlarged
         // object, so moving towards it doesn't cause a hover/return loop.
@@ -109,6 +125,8 @@ class OrbitInspection {
         this.preview.position.lerpVectors(orbitPosition, target, t);
         this.preview.position.x += Math.sin(Math.PI * t) * 0.8 * this.arcDirection;
         this.preview.quaternion.copy(this.active.mesh.quaternion).slerp(this.targetRotation, t);
+        this.appliedPreviewRotation.set(0, 0, 0, 1).slerp(this.previewRotation, t);
+        this.preview.quaternion.premultiply(this.appliedPreviewRotation);
         // Reveal the copy with the flight, using the same clock in both directions.
         const reveal = THREE.MathUtils.smoothstep(this.progress, 0.25, 0.9);
         this.caption.style.setProperty('--caption-reveal', reveal);

@@ -224,6 +224,8 @@ function dismissInspection() {
     hoverArmed = false;
     inspection.close();
 }
+const previewDrag = new PreviewDrag(inspection, initializer.camera, navigationCanvas,
+    document.getElementById('preview-drag-target'), dismissInspection);
 navigationRegion.addEventListener('pointermove', event => {
     if (event.pointerType !== 'mouse') return;
     if (orbitScroll.isPulling || moonDrag.active) return;
@@ -260,7 +262,8 @@ navigationCanvas.addEventListener('pointercancel', () => { pointerDown = null; }
 window.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
         dismissInspection();
-        if (linkLayer.contains(document.activeElement) || inspection.caption.contains(document.activeElement)) {
+        if (linkLayer.contains(document.activeElement) || inspection.caption.contains(document.activeElement) ||
+            previewDrag.contains(document.activeElement)) {
             document.activeElement.blur();
         }
     }
@@ -268,12 +271,21 @@ window.addEventListener('keydown', event => {
 for (const item of planetoids) {
     item.button.addEventListener('focus', () => inspection.begin(item, 'keyboard'));
     item.button.addEventListener('click', () => inspection.begin(item, 'keyboard'));
+    item.button.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && !event.shiftKey && inspection.active === item && !previewDrag.target.hidden) {
+            event.preventDefault();
+            previewDrag.target.focus();
+        }
+    });
     item.button.addEventListener('blur', event => {
-        if (!inspection.caption.contains(event.relatedTarget)) dismissInspection();
+        if (!inspection.caption.contains(event.relatedTarget) && !previewDrag.contains(event.relatedTarget)) {
+            dismissInspection();
+        }
     });
 }
 inspection.caption.addEventListener('focusout', event => {
-    if (!inspection.caption.contains(event.relatedTarget) && !linkLayer.contains(event.relatedTarget)) dismissInspection();
+    if (!inspection.caption.contains(event.relatedTarget) && !linkLayer.contains(event.relatedTarget) &&
+        !previewDrag.contains(event.relatedTarget)) dismissInspection();
 });
 window.addEventListener('scroll', () => {
     pointerInside = false;
@@ -326,6 +338,7 @@ function animate() {
         movableLight.update();
     }
     inspection.update(delta);
+    previewDrag.update();
     moonFeatures.update(initializer.camera);
     initializer.renderer.render(initializer.scene, initializer.camera);
     inspection.render();

@@ -93,7 +93,9 @@ presentation rotation, including the CubeSat's panels. Camera framing fits the
 shared orbit and the objects on desktop and mobile.
 
 Hover (desktop), tap (mobile), or keyboard focus brings an object into a large
-foreground inspection view and pauses the pointer-controlled light. All orbital
+foreground inspection view and pauses the pointer-controlled light. Drag the
+foreground object with a mouse or finger to rotate it; when its control is focused,
+the arrow keys rotate it and Home restores the configured inspection angle. All orbital
 positions keep advancing during inspection. Move away, click/tap again, or press
 Escape to return the object to where it would be if it had kept orbiting. There
 is a title, accent, short description, and scroll cue that fade in with the
@@ -114,7 +116,9 @@ Keyboard users can tab to the cue and press Enter, or fill the ring with the
 down arrow, Page Down, or Space. Escape cancels the selection and any pending navigation.
 `assets/js/orbit-scroll.js` owns this interaction; its `threshold` getter controls
 the required pull distance. The effect respects reduced-motion preferences.
-`assets/js/orbit-inspection.js` owns the transition and foreground lighting;
+`assets/js/orbit-inspection.js` owns the transition and foreground lighting, while
+`assets/js/preview-drag.js` positions the foreground object's drag target and handles
+pointer, touch, and keyboard rotation.
 `inspectionRotation` on an entry can choose the clearest detail view. The
 foreground copy leaves the original object's orbital slot and lights moving, and
 reduced-motion preferences skip the transition.

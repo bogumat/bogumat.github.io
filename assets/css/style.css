@@ -132,6 +132,29 @@ body, html {
     outline-offset: 3px;
 }
 
+/* The hit area follows the enlarged foreground model. */
+.preview-drag-target {
+    position: absolute;
+    z-index: 8;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.preview-drag-target.is-grabbing {
+    cursor: grabbing;
+}
+
+.preview-drag-target:focus-visible {
+    outline: 1px solid var(--caption-accent, #c4b0ff);
+    outline-offset: 5px;
+}
+
 /* Inspection copy shares the foreground object's animation progress. */
 .orbit-caption {
     --caption-reveal: 0;
