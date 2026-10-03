@@ -8,7 +8,7 @@
     <div class="article-card-content">
       <time datetime="{{ article.date }}">{{ article.date | date: "%d %b %Y" }}</time>
       <h3>{{ article.title | escape }}</h3>
-      <span class="article-card-link">Read on Substack <span aria-hidden="true">↗</span></span>
+      <span class="article-card-link">{{ article.cta | default: "Read on Substack" | escape }} <span aria-hidden="true">↗</span></span>
     </div>
   </a>
   {% endfor %}

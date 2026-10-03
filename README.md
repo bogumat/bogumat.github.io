@@ -136,13 +136,13 @@ Get in touch reveals the email address without requiring an email app.
 `assets/js/contact.js` adds copying and confirmation; the address and email link
 remain available without JavaScript.
 
-## Blog article grid
+## Blog grid
 
-`_data/articles.json` lists the Substack articles, newest first, with their exact
-titles, publication dates, canonical links, and original cover-image sources.
+`_data/articles.json` lists blog articles and videos, newest first, with their exact
+titles, publication dates, canonical links, calls to action, and original cover-image sources.
 `_includes/article-grid.html` renders the cards and links directly to each post.
 Covers are stored locally in `images/blog/` so the grid does not depend on a
-Substack request in the visitor's browser.
+third-party image request in the visitor's browser.
 
 The `matbogus.substack.com` public archive and RSS feed were checked on
 28 September 2026: both list four articles, all with individual cover images.
