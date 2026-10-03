@@ -191,7 +191,7 @@ body, html {
 .orbit-caption-title {
     margin: 0;
     color: #f8f6fc;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Silkscreen', monospace;
     font-size: clamp(56px, 7.7vw, 112px);
     font-weight: 600;
     line-height: 0.98;
