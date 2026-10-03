@@ -26,8 +26,7 @@ body, html {
 .site-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
     min-height: 84px;
     padding: 22px clamp(24px, 5vw, 88px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -47,16 +46,6 @@ body, html {
 .site-nav a:focus-visible {
     outline: 1px solid #c4b0ff;
     outline-offset: 7px;
-}
-
-.site-nav .site-brand {
-    color: #fff;
-    font-size: 18px;
-    white-space: nowrap;
-}
-
-.site-brand span {
-    color: #a99ac5;
 }
 
 .site-nav-links {
@@ -217,12 +206,7 @@ body, html {
 @media (max-width: 700px) {
     .site-nav {
         min-height: 68px;
-        gap: 12px;
         padding: 20px 18px;
-    }
-
-    .site-nav .site-brand {
-        font-size: 13px;
     }
 
     .site-nav-links {
@@ -300,10 +284,6 @@ body, html {
     .site-nav {
         padding-right: 16px;
         padding-left: 16px;
-    }
-
-    .site-nav .site-brand {
-        font-size: 11px;
     }
 
     .site-nav-links {
