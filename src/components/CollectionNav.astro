@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  current: 'about' | 'projects' | 'blog';
+}
+
+const { current } = Astro.props;
+const [projects, articles] = await Promise.all([
+  getCollection('projects'),
+  getCollection('articles'),
+]);
+---
+
+<nav class="collection-nav" aria-label="Browse collections">
+  <a href="/#about" aria-current={current === 'about' ? 'location' : undefined}>About</a>
+  <a href="/#projects" aria-current={current === 'projects' ? 'location' : undefined}>
+    Projects <span>{projects.length}</span>
+  </a>
+  <a href="/#blog" aria-current={current === 'blog' ? 'location' : undefined}>
+    Blog <span>{articles.length}</span>
+  </a>
+</nav>

@@ -1,0 +1,18 @@
+---
+title: 'MEng Thesis: Improving Astronaut Dexterity'
+pageTitle: Towards Improved Astronaut Dexterity
+heading: Passively Actuated Telehaptic Device
+image: "/images/thesis.png"
+year: 2023
+order: 4
+comingSoon: false
+---
+<section class="content">
+  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQentsoK3b7k1XqE20-aS_J8lMRo14spZRd0rzRrvmYavBk29othf8YlRLGohcr2CUszX9iYy_DadUT/embed?start=true&loop=true&delayms=2000" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</section>
+
+<section class="summary">
+  <p>Info: A solo project. A hydraulic exoskeleton transferring movement from the hand of the user to the robotic appendage, and tactile feeling from the robot to the finger tips of the user - resulting in better tactile identification when compared to protective heavy work gloves. This masters thesis won the Institution of Engineering and Technology prize for best scoring thesis project in the cohort.</p>
+  <p>Problem: Extra-vehicular Activity (EVA) gloves drastically reduce astronaut dexterity. Many approaches to improve upon this stay in the compromise between dexterity and protection against the harsh environment of space.</p>
+  <p>Solution: We can escape the compromise between dexterity and protection if we transfer movement from human to robot, and feeling from robot to human with high fidelity.</p>
+</section>

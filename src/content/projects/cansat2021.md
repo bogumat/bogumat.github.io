@@ -1,0 +1,20 @@
+---
+title: Modular CanSat
+pageTitle: Modular CanSat 2021
+heading: Modular CanSat 2021
+image: "/images/CanSat.png"
+year: 2020
+order: 13
+comingSoon: false
+---
+<section class="content">
+  <div class="image-container">
+    <img width="500" src="/images/CanSat Detail.png" alt="CanSat exploded view">
+  </div>
+</section>
+
+<section class="summary">
+  <p>Info: Modular data gathering device designed to be rapidly reflown.</p>
+  <p>Problem: CanSat data gathering devices are often single use or expensive.</p>
+  <p>Solution: This modular and cheap approach allows for this project to be iteratively designed and developed, as well as reflown within minutes by replacing battery and parachute modules, allowing for repeated experiments.</p>
+</section>

@@ -1,0 +1,118 @@
+---
+import ArticleGrid from '../components/ArticleGrid.astro';
+import CollectionHeader from '../components/CollectionHeader.astro';
+import ContactIcon from '../components/ContactIcon.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Matvey.Contact" page="home">
+  <div id="landing">
+    <div id="orbit-stage">
+      <div id="canvas"></div>
+      <button
+        id="moon-drag-target"
+        class="moon-drag-target"
+        type="button"
+        hidden
+        aria-label="Rotate the Moon: drag, or use arrow keys. Home resets the view."
+      ></button>
+      <span id="moon-coordinates" class="moon-coordinates" hidden></span>
+      <div id="orbit-links" role="group" aria-label="Inspect orbiting objects"></div>
+      <button id="preview-drag-target" class="preview-drag-target" type="button" hidden></button>
+      <aside id="orbit-caption" class="orbit-caption" aria-labelledby="orbit-caption-title" aria-hidden="true">
+        <div class="orbit-caption-copy" aria-live="polite" aria-atomic="true">
+          <p class="orbit-caption-eyebrow" id="orbit-caption-eyebrow"></p>
+          <h2 class="orbit-caption-title" id="orbit-caption-title"></h2>
+          <p class="orbit-caption-description" id="orbit-caption-description"></p>
+          <a id="orbit-scroll-cue" class="orbit-scroll-cue" href="#projects" tabindex="-1">
+            <span class="orbit-scroll-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <circle class="orbit-scroll-track" cx="24" cy="24" r="22"></circle>
+                <circle class="orbit-scroll-progress" cx="24" cy="24" r="22" pathLength="1"></circle>
+                <path class="orbit-scroll-arrow" d="M24 15v18m-6-6 6 6 6-6"></path>
+              </svg>
+            </span>
+            <span class="orbit-scroll-copy">
+              <span id="orbit-scroll-label">Scroll to explore</span>
+              <span id="orbit-scroll-destination">The projects</span>
+            </span>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <div id="orbit-pull" class="orbit-pull" aria-hidden="true">
+      <span class="orbit-pull-mark" aria-hidden="true">↗</span>
+      <div>
+        <p id="orbit-pull-status">Keep scrolling to open</p>
+        <p id="orbit-pull-destination"></p>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="home-collection" data-orbit-section aria-labelledby="about-heading" tabindex="-1">
+    <CollectionHeader current="about" />
+    <div class="about-copy">
+      <h2 id="about-heading" class="collection-title">Looking for hard problems.</h2>
+      <p>I love designing robotic systems, space-tech, and thinking about the future.</p>
+      <p>I run the Society for Technological Advancement (SoTA) - <a href="https://ilikethefuture.com">ilikethefuture.com</a></p>
+      <p>
+        I'm researching embodied physical systems at the <a href="https://ori.ox.ac.uk/">ORI</a> in the <a
+          href="https://ori.ox.ac.uk/groups/heat">HEAT Lab</a
+        >.
+      </p>
+      <div class="about-links">
+        <details class="about-contact" data-contact>
+          <summary class="social-link" aria-label="Get in touch" title="Get in touch">
+            <ContactIcon name="email" />
+          </summary>
+          <div class="contact-options">
+            <a href="mailto:hi@matvey.contact" class="contact-email">hi@matvey.contact</a>
+            <button type="button" data-copy-email hidden>Copy email</button>
+            <p class="contact-status" role="status"></p>
+          </div>
+        </details>
+        <a
+          href="https://www.linkedin.com/in/matvey-boguslavskiy"
+          class="social-link"
+          aria-label="LinkedIn — Matvey Boguslavskiy"
+          title="LinkedIn"
+        >
+          <ContactIcon name="linkedin" />
+        </a>
+        <a
+          href="https://x.com/matbogus"
+          class="social-link"
+          aria-label="X / Twitter — @matbogus"
+          title="X / Twitter — @matbogus"
+        >
+          <ContactIcon name="x" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="home-collection" data-orbit-section aria-labelledby="projects-heading" tabindex="-1">
+    <CollectionHeader current="projects" />
+    <div class="collection-intro">
+      <h2 id="projects-heading" class="collection-title">Projects</h2>
+    </div>
+    <ProjectGrid />
+  </section>
+
+  <section id="blog" class="home-collection" data-orbit-section aria-labelledby="blog-heading" tabindex="-1">
+    <CollectionHeader current="blog" />
+    <div class="collection-intro">
+      <h2 id="blog-heading" class="collection-title">Blog</h2>
+      <a href="https://matbogus.substack.com/" class="back-to-orbit">
+        On Substack <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <ArticleGrid />
+  </section>
+</BaseLayout>
+
+<script>
+  import '../scripts/orbit/moonlet.js';
+  import '../scripts/contact.js';
+</script>

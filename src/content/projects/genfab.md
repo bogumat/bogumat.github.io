@@ -1,0 +1,16 @@
+---
+title: 'I-400: An industrial FDM'
+pageTitle: 'I-400: An industrial FDM'
+heading: I-400 Printer
+image: "/images/i400.png"
+year: 2024
+order: 2
+comingSoon: false
+---
+<section class="content">
+  <iframe src="https://docs.google.com/presentation/d/1bck-JYyBuxnuQdgDFeTeMHREz_Z-YxxTpO2PngVMRMA/embed?start=true&loop=true&delayms=3000" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</section>
+
+<section class="summary">
+  <p>Info: As an engineering contractor, I led the redesign of a high-throuput thermoplastic FDM printer for industrial use. This project to design and manufacture a few prototypes took two months. This sheet-metal framed printer could print comfortably at an acceleration of 6Gs, and has a novel diagonal dual-motor coreXY belting setup.</p>
+</section>

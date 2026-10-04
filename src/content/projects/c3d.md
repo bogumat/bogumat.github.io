@@ -1,0 +1,20 @@
+---
+title: 'Continuum3D: Better 3D printer spaces'
+pageTitle: Continuum3D
+heading: C3D - Design, Business plan, Partnerships
+image: "/images/c3d.png"
+year: 2023
+order: 5
+comingSoon: false
+---
+<section class="content">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/eScXvTJx7uY?si=uVUzHJJnSxg6SDBa" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</section>
+
+<section class="summary">
+  <h2>Info</h2>
+  <p>A faster, more efficient, and cheaper 3D printing automation solution (for a school project). In a team of 5, I had a role in ideating, designing, marketing, and prototyping of the product, as well as financial modeling of the potential business. More detail available on <a href="https://Continuum3D.XYZ" target="_blank" rel="noopener noreferrer">continuum3D.</a></p>
+  <h2>Problem</h2>
+  <p>Shared 3D printer spaces are rife with user-error, inefficient use of space, low utilisation of printers, and staffing costs.</p>
+  <p>Solution: By queuing prints and storing them via a gantry system, we can print around the clock and deliver more prints in a more timely manner, while removing the most common elements of user error.</p>
+</section>

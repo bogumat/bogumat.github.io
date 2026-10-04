@@ -1,0 +1,14 @@
+---
+title: 'Svarog: Interstellar CubeSat'
+pageTitle: Project Svarog - Interstellar CubeSat
+heading: 'Interstellar CubeSat : Svarog'
+image: "/images/svarog.jpeg"
+year: 2022
+order: 7
+comingSoon: false
+---
+<section class="summary">
+  <p>Info: I led the experiment design team of Project Svarog - publishing in the <a href="https://bis-space.com/shop/product/jbis-076-03-0078/" target="_blank" rel="noopener noreferrer">Journal of the British Interplanetary Society</a>. Project Svarog is a student-run initiative of the Imperial College Space Society. Inspired by Oumuamua during my first term as Chair/President - how might we (as a student engineering group) send an object beyond our solar system?</p>
+  <p>Problem: How might we (a student society) launch an object into Interstellar space within a reasonable time frame?</p>
+  <p>Solution: A 3U CubeSat with a solar sail released on a trans-martian trajectory.</p>
+</section>

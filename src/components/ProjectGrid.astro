@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="grid-section">
+  {projects.map(({ id, data: project }) => project.comingSoon ? (
+    <article class="grid-item is-coming-soon">
+      <div class="project-media">
+        <img src={project.image} alt={project.title} class="project-image" loading="lazy" decoding="async" />
+        <div class="project-coming-soon"><span>Coming soon</span></div>
+      </div>
+      <div class="project-card-caption">
+        <h3>{project.title}</h3>
+        <span class="project-year">{project.year}</span>
+      </div>
+    </article>
+  ) : (
+    <a href={`/projects/${id}.html`} class="grid-item">
+      <div class="project-media">
+        <img src={project.image} alt={project.title} class="project-image" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-card-caption">
+        <h3>{project.title}</h3>
+        <span class="project-year">{project.year}</span>
+      </div>
+    </a>
+  ))}
+</div>

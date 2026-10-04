@@ -1,0 +1,18 @@
+---
+title: 'LumiRo.cc: Visualising Asteroids'
+pageTitle: LumiRo.cc - NASA Space Apps
+heading: Lumiro.cc - NASA Space Apps Global Nomination Winner
+image: "/images/LumiRoccCover@4x.png"
+year: 2021
+order: 10
+comingSoon: false
+---
+<section class="content">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Dngln1dxMS4?si=iJm-hwZp5HxEzSts" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</section>
+
+<section class="summary">
+  <p>Info: A submission to the NASASpaceApps Hackathon which won a Global Nomination - all completed within a 24h sprint.</p>
+  <p>Problem: Objects in the outer solar system are barely visible blinking lights, making it hard to discern any information about them.</p>
+  <p>Solution: A web-app that extracts the light-curve data from known geometries. This can be used to train models to make informed guesses on the geometry of far-away objects.</p>
+</section>

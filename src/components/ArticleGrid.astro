@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+});
+---
+
+<div class="grid-section">
+  {articles.map(({ data: article }) => (
+    <a href={article.link} class="grid-item article-card">
+      {article.image && (
+        <img
+          src={article.image}
+          alt=""
+          class="article-cover"
+          style={article.imagePosition ? `object-position: ${article.imagePosition}` : undefined}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+      <div class="article-card-content">
+        <time datetime={article.date.toISOString().slice(0, 10)}>{dateFormatter.format(article.date)}</time>
+        <h3>{article.title}</h3>
+        <span class="article-card-link">{article.cta} <span aria-hidden="true">↗</span></span>
+      </div>
+    </a>
+  ))}
+</div>

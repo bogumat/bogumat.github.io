@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: 'email' | 'linkedin' | 'x';
+}
+
+const { name } = Astro.props;
+---
+
+<svg class="profile-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+  {name === 'email' && (
+    <>
+      <path d="M5 5.5h14l2 2v11H3v-11l2-2Z"></path>
+      <path d="m3.5 7.5 8.5 6 8.5-6M3.5 18l5.75-5M20.5 18l-5.75-5"></path>
+    </>
+  )}
+  {name === 'linkedin' && (
+    <>
+      <circle cx="5.5" cy="5.5" r="1.15" fill="currentColor" stroke="none"></circle>
+      <path d="M5.5 9.5v9M10.5 9.5v9m0-5.25c0-5.25 8-5.25 8 0v5.25"></path>
+    </>
+  )}
+  {name === 'x' && <path d="M4 4h4l12 16h-4L4 4ZM19.5 4 13 11.5M11 13.5 4.5 20"></path>}
+</svg>

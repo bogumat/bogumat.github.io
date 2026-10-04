@@ -1,0 +1,39 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import '../styles/style.css';
+import '../styles/orbit-scroll.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  page: 'home' | 'default' | 'project';
+}
+
+const {
+  title = 'Matvey Boguslavskiy',
+  description = 'Personal portfolio — robotics, space-tech, and engineering projects.',
+  page,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet" />
+  </head>
+  <body class={`page-${page}`}>
+    <header class="site-header">
+      <SiteNav />
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

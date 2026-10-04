@@ -1,0 +1,18 @@
+---
+title: Autonomous Naval Signalling
+pageTitle: Autonomous Naval Signalling
+heading: POLARIS Autonomous Naval Signalling Solution
+image: "/images/PolarisCover_2@4x.png"
+year: 2021
+order: 11
+comingSoon: false
+---
+<section class="content">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/sL0wt4lDX8k?si=gsPlHK7wzYmFIe8j" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</section>
+
+<section class="summary">
+  <p>Info: A day-time signaling solution for autonomous maritime vessels. The winning submission to the Ocean Infinity Hackathon.</p>
+  <p>Problem: "Day-shapes" are required by international maritime regulations - but require a sailor to change and set up.</p>
+  <p>Solution: By manipulating sheets of polarized film, POLARIS can make day-shapes appear and disappear with remote signaling.</p>
+</section>
